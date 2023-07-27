@@ -1,3 +1,4 @@
 cache/
 *.ext4
 *.deb
+*.uboot.bin
