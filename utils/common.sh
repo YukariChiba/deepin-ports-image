@@ -5,8 +5,6 @@ IMGPFX="deepin-$TARGET_DEVICE-$TARGET_ARCH"
 DISKIMG="$IMGPFX.root.$FSFMT"
 BOOTIMG="$IMGPFX.boot.$BOOTFMT"
 
-rm ./*.noconf.$FSFMT
-
 mkdir -p $CACHEPATH
 
 dd if=/dev/zero of=./$DISKIMG iflag=fullblock bs=1M count=$DISKSIZE

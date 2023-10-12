@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-rm /sbin/init
+rm $0
 
 mount -t proc /proc proc
 resize2fs /dev/mmcblk0p2
@@ -34,6 +34,19 @@ chsh -s /bin/bash deepin
 
 echo root:deepin | chpasswd
 echo deepin:deepin | chpasswd
+
+cat << 'EOF' >> /etc/locale.conf
+LANG=zh_CN.UTF-8
+LANGUAGE=zh_CN
+EOF
+
+sed -i 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen
+
+locale-gen
+
+sed -i '/\[Compositing\]/aEnabled=false' /etc/xdg/deepin-kwinrc
+sed -i '/\[Compositing\]/aOpenGLIsUnsafe=false' /etc/xdg/deepin-kwinrc
+sed -i '/\[Plugins\]/amagiclampEnabled=false' /etc/xdg/deepin-kwinrc
 
 rm -rf /boot/*
 

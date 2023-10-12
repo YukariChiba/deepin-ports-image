@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-rm /lib/systemd/systemd
+rm $0
 
 mount -t proc /proc proc
 resize2fs /dev/mmcblk0p3
