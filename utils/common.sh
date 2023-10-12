@@ -18,6 +18,7 @@ sudo debootstrap --arch=$TARGET_ARCH --foreign \
         --no-check-gpg \
         --include=$INCPKGS \
         --cache-dir=$CACHEPATH \
+	--components=$COMPONENTS \
         beige \
         $ROOTFS \
         $REPO
@@ -26,8 +27,8 @@ sudo echo "deepin-$TARGET_ARCH-$TARGET_DEVICE" | sudo tee $ROOTFS/etc/hostname >
 
 sudo echo "deb [trusted=yes] $REPO beige main" | sudo tee $ROOTFS/etc/apt/sources.list > /dev/null
 
-sudo cp ./stage2/$TARGET_DEVICE.sh $ROOTFS/lib/systemd/systemd
-sudo chmod +x $ROOTFS/lib/systemd/systemd
+sudo cp ./stage2/$TARGET_DEVICE.sh $ROOTFS/$INITEXEC
+sudo chmod +x $ROOTFS/$INITEXEC
 
 if [ "$BUILDBOOTIMG" -eq "1" ]; then
 	dd if=/dev/zero of=./$BOOTIMG iflag=fullblock bs=1M count=$BOOTSIZE
