@@ -1,4 +1,4 @@
 cache/
+injectbin/*/*/*
+bootbin/*
 *.ext4
-*.deb
-*.uboot.bin

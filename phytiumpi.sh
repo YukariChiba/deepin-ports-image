@@ -7,11 +7,12 @@ TARGET_ARCH=arm64
 DISKSIZE=3500
 BUILDBOOTIMG=0
 
+. ./utils/parseopt.sh
+
 #------------------------------------------------------------------------
 
-if [ "$1" == "minimal" ]; then
-	INCPKGS=`cat ./packages.minimal.txt | xargs | sed -e 's/ /,/g'`
-	DISKSIZE=300
+if [ "$IMGPROFILE" == "minimal" ]; then
+	DISKSIZE=600
 fi
 
 . ./utils/common.sh

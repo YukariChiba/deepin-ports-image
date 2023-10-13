@@ -9,9 +9,11 @@ DISKSIZE=1200
 BOOTSIZE=30
 REPO="https://ci.deepin.com/repo/deepin/deepin-ports/deepin-stage1/"
 DTBPATH=thead/light-lpi4a.dtb
-INCPKGS=`cat ./packages.ports.txt | xargs | sed -e 's/ /,/g'`
 INITEXEC=lib/systemd/systemd
 COMPONENTS=main
+IMGPROFILE=ports
+
+. ./utils/parseopt.sh
 
 #------------------------------------------------------------------------
 

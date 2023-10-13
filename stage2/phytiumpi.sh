@@ -48,6 +48,8 @@ sed -i '/\[Compositing\]/aEnabled=false' /etc/xdg/deepin-kwinrc
 sed -i '/\[Compositing\]/aOpenGLIsUnsafe=false' /etc/xdg/deepin-kwinrc
 sed -i '/\[Plugins\]/amagiclampEnabled=false' /etc/xdg/deepin-kwinrc
 
+ln -s /lib/systemd/system/bt-init.service /etc/systemd/system/multi-user.target.wants/bt-init.service
+
 rm -rf /boot/*
 
 echo "Install complete, entering system..." > /dev/tty0
