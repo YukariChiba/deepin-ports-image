@@ -27,8 +27,10 @@ parted -s /dev/mmcblk0 "resizepart 2 -0"
 resize2fs /dev/mmcblk0p2
 umount /proc
 
-useradd -m deepin
-usermod -G sudo deepin
+useradd -m -g users deepin
+usermod -a -G sudo deepin
+# Temporary Audio Fix
+usermod -a -G audio deepin
 
 chsh -s /bin/bash deepin
 
