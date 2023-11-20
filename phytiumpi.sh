@@ -5,7 +5,7 @@
 TARGET_DEVICE=phytiumpi
 TARGET_ARCH=arm64
 DISKSIZE=3500
-BUILDBOOTIMG=0
+BOOTSIZE=0
 
 . ./utils/parseopt.sh
 

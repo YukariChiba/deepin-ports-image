@@ -3,6 +3,8 @@
 Currently works with:
 
 - LicheePi 4A
+- Phytium Pi
+- DC ROMA
 
 ## Usage
 
@@ -15,5 +17,4 @@ Currently works with:
 ## TODO
 
 - customized kernel deb url
-- device-spefific flashing methods
 

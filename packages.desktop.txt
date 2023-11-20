@@ -6,6 +6,7 @@ fastfetch
 perl-openssl-defaults
 libspdlog1.10
 fuse3
+-fuse
 sudo
 tmux
 vim

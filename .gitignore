@@ -1,4 +1,7 @@
 cache/
 injectbin/*/*/*
 bootbin/*
+u-boot-build/buildroot/*
 *.ext4
+*.fat32
+u-boot-build/

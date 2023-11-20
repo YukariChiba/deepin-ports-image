@@ -1,3 +1,9 @@
 sudo
 vim
 bash-completion
+ca-certificates
+deepin-keyring
+git
+perl-openssl-defaults
+apt
+parted

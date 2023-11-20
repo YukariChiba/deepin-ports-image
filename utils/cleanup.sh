@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$BUILDBOOTIMG" -eq "1" ]; then
+if [ "$BOOTSIZE" -ne "0" ]; then
 	sudo umount $ROOTFS/boot	
 fi
 
