@@ -1,19 +1,22 @@
 #!/bin/bash
 
 ROOTFS=`mktemp -d`
-IMGPFX="deepin-$TARGET_DEVICE-$TARGET_ARCH-$IMGPROFILE"
+IMGPFX="deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE"
 DISKIMG="$IMGPFX.root.$FSFMT"
 BOOTIMG="$IMGPFX.boot.$BOOTFMT"
 
-if [ ! -f "./packages.$IMGPROFILE.txt" ]; then
-	echo "error: packages list of profile '$IMGPROFILE' not found"
+if [ ! -f "./profiles/repos.$REPOPROFILE.txt" ]; then
+	echo "error: repo list of profile '$REPOPROFILE' not found"
 	exit 1
 fi
 
-INCPKGS=`cat ./packages.$IMGPROFILE.txt | grep -v "^-" | xargs | sed -e 's/ /,/g'`
-EXCPKGS=`cat ./packages.$IMGPROFILE.txt | grep "^-" | sed 's/^-//g' | xargs | sed -e 's/ /,/g'`
+if [ ! -f "./profiles/packages.$PKGPROFILE.txt" ]; then
+	echo "error: packages list of profile '$PKGPROFILE' not found"
+	exit 1
+fi
 
-mkdir -p $CACHEPATH
+readarray -t INCREPOS < ./profiles/repos.$REPOPROFILE.txt
+INCPKGS=`cat ./profiles/packages.$PKGPROFILE.txt | grep -v "^-" | xargs | sed -e 's/ /,/g'`
 
 if [ -e "./$DISKIMG" ]; then
 	rm ./$DISKIMG
@@ -24,44 +27,17 @@ sudo mkfs.$FSFMT ./$DISKIMG
 
 sudo mount ./$DISKIMG $ROOTFS
 
-if [ "$BOOTSTRAP_ENGINE" == "mmdebstrap" ]; then
-	sudo mmdebstrap \
-        	--mode=root \
-        	--include=$INCPKGS \
-        	--architectures=$TARGET_ARCH standard \
-		--customize=./stage2/mmdebstrap.sh \
-        	$ROOTFS \
-        	"deb [trusted=yes] https://ci.deepin.com/repo/obs/deepin%3A/Develop%3A/main/standard/ ./" \
-        	"deb [trusted=yes] https://ci.deepin.com/repo/obs/deepin%3A/Develop%3A/main%3A/bootstrap/bootstrap-riscv64/ ./" \
-        	"deb [trusted=yes] https://ci.deepin.com/repo/obs/deepin%3A/Develop%3A/community/deepin_develop/ ./" \
-        	"deb [trusted=yes] https://ci.deepin.com/repo/obs/deepin%3A/Develop%3A/dde/deepin_develop/ ./"
-else
-	INCEXC=""
-	if [ "$INCPKGS" != "" ]; then
-		INCEXC+=" --include=$INCPKGS "
-	fi
-	if [ "$EXCPKGS" != "" ]; then
-		INCEXC+=" --exclude=$EXCPKGS "
-	fi
-	sudo debootstrap --arch=$TARGET_ARCH --foreign \
-        	--no-check-gpg \
-        	--cache-dir=$CACHEPATH \
-		--components=$COMPONENTS \
-		$INCEXC \
-        	beige \
-        	$ROOTFS \
-        	$REPO
-	sudo echo "deb [trusted=yes] $REPO beige main" | sudo tee $ROOTFS/etc/apt/sources.list > /dev/null
-fi
+sudo mmdebstrap \
+	--hook-dir=/usr/share/mmdebstrap/hooks/merged-usr \
+	--include=$INCPKGS \
+	--architectures=$TARGET_ARCH $COMPONENTS \
+	--customize=./utils/stage2.sh \
+	$ROOTFS \
+	"${INCREPOS[@]}"
 
 sudo echo "deepin-$TARGET_ARCH-$TARGET_DEVICE" | sudo tee $ROOTFS/etc/hostname > /dev/null
 sudo echo "Asia/Shanghai" | sudo tee $ROOTFS/etc/timezone > /dev/null
-sudo ln -s /usr/share/zoneinfo/Asia/Shanghai $ROOTFS/etc/localtime
-
-if [ "$INITEXEC" != "" ]; then
-	sudo cp ./stage2/$TARGET_DEVICE.sh $ROOTFS/$INITEXEC
-	sudo chmod +x $ROOTFS/$INITEXEC
-fi
+sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai $ROOTFS/etc/localtime
 
 if [ -d "./injectbin/firmware/$TARGET_DEVICE" ]; then
 	sudo mkdir -p $ROOTFS/lib/firmware
@@ -95,15 +71,6 @@ if [ "$BOOTSIZE" -ne "0" ]; then
 	fi
 	sudo mkdir -p $ROOTFS/boot
 	sudo mount ./$BOOTIMG $ROOTFS/boot
-
-	KERNELDIR=`mktemp -d`
-
-	if [ -d "./injectbin/kerneldeb/$TARGET_DEVICE/linux-image.deb" ]; then
-		sudo dpkg-deb -x ./injectbin/kerneldeb/$TARGET_DEVICE/linux-image.deb $KERNELDIR
-		sudo cp $KERNELDIR/boot/vmlinux* $ROOTFS/boot/Image
-		sudo cp $KERNELDIR/usr/lib/linux-image-*/$DTBPATH $ROOTFS/boot/
-		sudo cp ./injectbin/kerneldeb/$TARGET_DEVICE/linux-image.deb $ROOTFS/debootstrap/
-	fi
 fi
 
 if [ -d "./bootbin/$TARGET_DEVICE" ]; then

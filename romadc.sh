@@ -4,11 +4,11 @@
 
 TARGET_DEVICE=romadc
 TARGET_ARCH=riscv64
-DISKSIZE=1024
+DISKSIZE=2048
 BOOTSIZE=256
-INITEXEC=
-BOOTSTRAP_ENGINE=mmdebstrap
-IMGPROFILE=minimal
+PKGPROFILE=buildenv
+REPOPROFILE=main-riscv64
+COMPONENTS=standard
 
 . ./utils/parseopt.sh
 
