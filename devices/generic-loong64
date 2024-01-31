@@ -1,0 +1,9 @@
+TARGET_DEVICE=generic-loong64
+TARGET_ARCH=loong64
+DISKSIZE=9500
+BOOTSIZE=64
+PKGPROFILE=desktop-lite
+REPOPROFILE=stable-obs-loong64-ffmpeg
+BOOTLOADER=grub
+EXTRAPKGS=linux-image-6.6.9-loong64
+COMPONENTS=stable

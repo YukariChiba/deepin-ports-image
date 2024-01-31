@@ -1,0 +1,1 @@
+deb [ trusted=yes ] https://ci.deepin.com/repo/deepin/deepin-community/stable/ beige main community commercial

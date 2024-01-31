@@ -1,0 +1,9 @@
+IMGTPL=template
+TARGET_DEVICE=visionfive2
+TARGET_ARCH=riscv64
+DISKSIZE=11000
+BOOTSIZE=256
+PKGPROFILE=desktop-installer
+REPOPROFILE=stable
+BOOTLOADER=extlinux
+COMPONENTS=beige

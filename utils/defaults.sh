@@ -5,3 +5,5 @@ BOOTFMT=fat32
 COMPONENTS=main,community,commercial
 PKGPROFILE=desktop
 REPOPROFILE=main
+ROOTLABEL=root
+BOOTLABEL=boot
