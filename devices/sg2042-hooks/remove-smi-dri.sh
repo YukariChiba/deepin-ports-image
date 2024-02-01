@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo rm $ROOTFS/etc/X11/xorg.conf.d/10-smi.conf
+echo "blacklist smifb" | sudo tee $ROOTFS/etc/modprobe.d/sg2042-extgpu.conf

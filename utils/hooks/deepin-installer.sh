@@ -14,7 +14,7 @@ if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
   fi
   echo -n '"' | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf
   sudo ln -s ../deepin-installer-first-boot.service $ROOTFS/usr/lib/systemd/system/multi-user.target.wants/deepin-installer-first-boot.service
-  if [ "$TARGET_ARCH" == "riscv64" ]; then
+  if [ "$TARGET_ARCH" == "riscv64" ] && [ "$TARGET_DEVICE" != "sg2042" ]; then
     sudo sed -i 's/setup_kwin_blur$//' $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
   fi
 fi
