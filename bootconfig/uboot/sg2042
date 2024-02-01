@@ -1,0 +1,2 @@
+U_BOOT_PARAMETERS="rw earlycon"
+U_BOOT_ROOT="root=LABEL=root"

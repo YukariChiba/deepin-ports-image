@@ -1,5 +1,0 @@
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/stable:/main/stable/ ./ 
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/stable:/community/stable/ ./ 
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/stable:/dde/stable/ ./
-deb [ trusted=yes ] http://10.20.52.154:8080/larv/ ./
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/stable:/main:/ffmpeg-stage1/stable/ ./

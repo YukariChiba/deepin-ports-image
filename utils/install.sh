@@ -22,11 +22,11 @@ if [ "$BOOTLOADER" == "extlinux" ] || [ "$BOOTLOADER" == "grub" ]; then
   INCPKGS+=",initramfs-tools"
 fi
 
+if [ "$BOOTLOADER" == "extlinux" ]; then
+  INCPKGS+=",u-boot-menu"
+fi
+
 if [ ! -z $EXTRAPKGS ]; then
-  if [ ! -z $NOHOOKS ]; then
-    echo "error: extrapkgs should not be used with nohooks (templates)"
-    exit 1 
-  fi
   INCPKGS+=",$EXTRAPKGS"
 fi
 
@@ -34,18 +34,8 @@ if [ -e "./$DISKIMG" ]; then
 	rm ./$DISKIMG
 fi
 
-if [ -z $IMGTPL ]; then
-  dd if=/dev/zero of=./$DISKIMG iflag=fullblock bs=1M count=$DISKSIZE
-  sudo mkfs.$FSFMT ./$DISKIMG
-else
-  TPLPFX=deepin-$IMGTPL-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE
-  TPLIMG="./results/$TPLPFX.root.$FSFMT"
-  if [ ! -e "./$TPLIMG" ]; then
-    echo "error: template image $TPLIMG not exist"
-    exit 1
-  fi
-  cp ./$TPLIMG ./$DISKIMG
-fi
+dd if=/dev/zero of=./$DISKIMG iflag=fullblock bs=1M count=$DISKSIZE
+sudo mkfs.$FSFMT ./$DISKIMG
 
 sudo mount ./$DISKIMG $ROOTFS
 
@@ -68,8 +58,6 @@ if [ "$BOOTSIZE" -ne "0" ]; then
 	fi
 fi
 
-if [ -z $IMGTPL ]; then
-
 sudo mmdebstrap \
 	--hook-dir=/usr/share/mmdebstrap/hooks/merged-usr \
 	--include=$INCPKGS \
@@ -77,5 +65,3 @@ sudo mmdebstrap \
 	--architectures=$TARGET_ARCH $COMPONENTS \
 	$ROOTFS \
 	"${INCREPOS[@]}"
-
-fi
