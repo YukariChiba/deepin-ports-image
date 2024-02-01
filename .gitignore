@@ -6,3 +6,4 @@ u-boot-build/buildroot/*
 *.fat32
 *.bin
 u-boot-build/
+results/
