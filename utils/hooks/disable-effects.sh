@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$TARGET_ARCH" == "riscv64" ]; then
+if [ "$TARGET_ARCH" == "riscv64" ] && [ "$TARGET_DEVICE" != "sg2042" ]; then
   echo_bold "--- Disabled graphical effects"
   if [ -f "$ROOTFS/etc/xdg/deepin-kwinrc" ]; then
     sudo sed -i '/\[Compositing\]/aEnabled=false' $ROOTFS/etc/xdg/deepin-kwinrc || true
