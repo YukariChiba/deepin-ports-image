@@ -1,2 +1,2 @@
-U_BOOT_PARAMETERS="rw earlycon"
+U_BOOT_PARAMETERS="rw earlycon hide_v0p7_ext"
 U_BOOT_ROOT="root=LABEL=root"

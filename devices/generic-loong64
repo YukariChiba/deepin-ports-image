@@ -6,6 +6,6 @@ TARGET_ARCH=loong64
 DISKSIZE=9500
 BOOTSIZE=64
 PKGPROFILE=desktop-lite
-REPOPROFILE=stable-obs-loong64-ffmpeg
+REPOPROFILE=stable-obs-develop
 BOOTLOADER=grub
 COMPONENTS=stable
