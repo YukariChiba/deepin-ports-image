@@ -14,6 +14,7 @@ xserver-xorg
 bash-completion
 firefox
 deepin-installer
+deepin-installer-timezones
 dbus-x11
 x11-utils
 dde-introduction
@@ -26,7 +27,8 @@ deepin-calculator
 deepin-draw
 deepin-editor
 deepin-movie
-deepin-manual
+deepin-compressor
+deepin-screen-recorder
 com.deepin.gomoku
 com.deepin.lianliankan
 libreoffice

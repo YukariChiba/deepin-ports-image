@@ -1,7 +1,11 @@
 #!/bin/bash
 
 if [ "$BOOTSIZE" -ne "0" ]; then
-  sudo umount $ROOTFS/boot
+  if [ "$BOOTLOADER" == "grub" ]; then
+    sudo umount $ROOTFS/boot/efi
+  else
+    sudo umount $ROOTFS/boot
+  fi
 fi
 
 sudo umount $ROOTFS

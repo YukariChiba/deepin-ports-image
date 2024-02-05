@@ -1,0 +1,2 @@
+deb [ trusted=yes ] https://ci.deepin.com/repo/deepin/deepin-community/stable/ beige main community commercial
+deb [ trusted=yes ] http://10.20.52.154:8080/larv/ ./

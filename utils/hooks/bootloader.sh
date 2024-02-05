@@ -1,11 +1,17 @@
 #!/bin/bash
 
 if [ -d "./injectbin/kernelbin/$TARGET_DEVICE" ]; then
-  echo_bold "--- Found binary kernel"
-  sudo mkdir -p $ROOTFS/lib/modules
-  sudo mkdir -p $ROOTFS/boot
-  sudo cp -r ./injectbin/kernelbin/$TARGET_DEVICE/boot/* $ROOTFS/boot/
-  sudo cp -r ./injectbin/kernelbin/$TARGET_DEVICE/modules/* $ROOTFS/lib/modules/
+  echo_bold "--- Found binary kernel/module/bootloader files"
+  if [ -d "./injectbin/kernelbin/$TARGET_DEVICE/modules" ]; then
+    echo "--- Found binary kernel modules"
+    sudo mkdir -p $ROOTFS/lib/modules
+    sudo cp -r ./injectbin/kernelbin/$TARGET_DEVICE/modules/* $ROOTFS/lib/modules/
+  fi
+  if [ -d "./injectbin/kernelbin/$TARGET_DEVICE/boot" ]; then
+    echo "--- Found binary kernel/bootloader"
+    sudo mkdir -p $ROOTFS/boot
+    sudo cp -r ./injectbin/kernelbin/$TARGET_DEVICE/boot/* $ROOTFS/boot/
+  fi
 fi
 
 if [ -d "./injectbin/kerneldeb/$TARGET_DEVICE" ]; then
