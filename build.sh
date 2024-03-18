@@ -10,6 +10,15 @@ fi
 . ./utils/defaults.sh
 . ./devices/$TARGET_DEVICE_CONF
 . ./utils/parseopt.sh
+if [ "$FSFMT" == "sfs" ]; then
+  . ./utils/mount-sfs.sh
+else
+  . ./utils/mount.sh
+fi
 . ./utils/install.sh
 . ./utils/hooks.sh
-. ./utils/cleanup.sh
+if [ "$FSFMT" == "sfs" ]; then
+  . ./utils/cleanup-sfs.sh
+else
+  . ./utils/cleanup.sh
+fi

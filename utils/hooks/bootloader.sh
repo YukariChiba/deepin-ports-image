@@ -49,4 +49,15 @@ if [ "$BOOTLOADER" == "grub" ]; then
     echo "--- Update initramfs"
     sudo systemd-nspawn -D $ROOTFS bash -c "update-initramfs -k all -c || true"
   fi
+  if [ -z $LIVE ]; then
+    if [ -f "./bootconfig/grub/$TARGET_DEVICE" ]; then
+      mkdir -p $ROOTFS/boot/efi/grub
+      sudo cp ./bootconfig/grub/$TARGET_DEVICE $ROOTFS/boot/efi/grub/grub.cfg
+    fi
+  else
+    if [ -f "./bootconfig/grub-live/$TARGET_DEVICE" ]; then
+      mkdir -p $ROOTFS/boot/efi/grub
+      sudo cp ./bootconfig/grub-live/$TARGET_DEVICE $ROOTFS/boot/efi/grub/grub.cfg
+    fi
+  fi
 fi

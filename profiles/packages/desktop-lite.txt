@@ -76,6 +76,3 @@ deepin-editor
 deepin-movie
 com.deepin.gomoku
 com.deepin.lianliankan
-deepin-installer
-dbus-x11
-x11-utils

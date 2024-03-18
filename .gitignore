@@ -7,3 +7,5 @@ u-boot-build/buildroot/*
 *.bin
 u-boot-build/
 results/
+tmp/
+utils/hooks/phytiumpi-bt/*

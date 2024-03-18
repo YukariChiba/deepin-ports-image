@@ -1,11 +1,10 @@
 # bootloader : https://github.com/sophgo/bootloader-riscv
 # mode : extlinux
 
-BOOTFMT=ext4
 TARGET_DEVICE=sg2042
 TARGET_ARCH=riscv64
-DISKSIZE=1500
-BOOTSIZE=256
+DISKSIZE=2500
+BOOTSIZE=0
 PKGPROFILE=minimal
 REPOPROFILE=stable
 BOOTLOADER=extlinux
