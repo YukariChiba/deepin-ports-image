@@ -1,5 +1,0 @@
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/Develop:/main/standard/ ./ 
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/Develop:/dde/deepin_develop/ ./ 
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/Develop:/community/deepin_develop/ ./ 
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/GPL:/Rust/standard/ ./
-

@@ -1,0 +1,9 @@
+TARGET_DEVICE=unmatched
+TARGET_ARCH=riscv64
+DISKSIZE=11000
+BOOTSIZE=0
+PKGPROFILE=desktop-installer
+REPOPROFILE=stable
+EXTRAPKGS=linux-image-6.6.28-unmatched
+BOOTLOADER=extlinux
+COMPONENTS=beige
