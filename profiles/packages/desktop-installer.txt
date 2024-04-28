@@ -33,3 +33,4 @@ com.deepin.gomoku
 com.deepin.lianliankan
 libreoffice
 libreoffice-l10n-zh-cn
+systemd-timesyncd

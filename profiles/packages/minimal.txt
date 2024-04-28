@@ -8,3 +8,4 @@ perl-openssl-defaults
 apt
 parted
 initramfs-tools
+systemd-timesyncd
