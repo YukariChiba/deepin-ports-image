@@ -34,3 +34,5 @@ com.deepin.lianliankan
 libreoffice
 libreoffice-l10n-zh-cn
 systemd-timesyncd
+fcitx5
+fcitx5-chinese-addons

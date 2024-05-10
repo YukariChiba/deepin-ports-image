@@ -8,3 +8,4 @@ REPOPROFILE=stable
 #EXTRAPKGS=linux-image-5.17.0-rc7-eic7700
 BOOTLOADER=extlinux
 COMPONENTS=beige
+NORESIZE=1
