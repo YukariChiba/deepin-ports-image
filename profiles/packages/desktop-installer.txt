@@ -36,3 +36,4 @@ libreoffice-l10n-zh-cn
 systemd-timesyncd
 fcitx5
 fcitx5-chinese-addons
+deepin-fcitx5configtool-plugin
