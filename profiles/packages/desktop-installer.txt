@@ -33,6 +33,8 @@ com.deepin.gomoku
 com.deepin.lianliankan
 libreoffice
 libreoffice-l10n-zh-cn
+libreoffice-gtk3
+libreoffice-gnome
 systemd-timesyncd
 fcitx5
 fcitx5-chinese-addons
