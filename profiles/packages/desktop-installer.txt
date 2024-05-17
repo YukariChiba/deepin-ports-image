@@ -38,4 +38,7 @@ libreoffice-gnome
 systemd-timesyncd
 fcitx5
 fcitx5-chinese-addons
+fcitx5-frontend-qt5
+fcitx5-frontend-qt6
+fcitx5-config-qt
 deepin-fcitx5configtool-plugin
