@@ -1,0 +1,12 @@
+# bootloader : https://github.com/sophgo/bootloader-riscv
+# mode : extlinux
+
+TARGET_DEVICE=sg2042
+TARGET_ARCH=riscv64
+DISKSIZE=3500
+BOOTSIZE=0
+PKGPROFILE=minimal
+REPOPROFILE=stable
+EXTRAPKGS=linux-image-6.1.80-mango
+BOOTLOADER=extlinux
+COMPONENTS=beige
