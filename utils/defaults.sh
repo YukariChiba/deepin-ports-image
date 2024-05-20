@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p tmp results
+
 FSFMT=ext4
 BOOTFMT=fat32
 COMPONENTS=main,community,commercial
