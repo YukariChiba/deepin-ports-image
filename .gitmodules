@@ -1,0 +1,3 @@
+[submodule "injectbin"]
+	path = injectbin
+	url = http://gitea.cicd.getdeepin.org/yukari/deepin-ports-image-injectbin
