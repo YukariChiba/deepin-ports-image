@@ -18,7 +18,7 @@ if [ "$FSFMT" == "ext4" ]; then
   e2label $DISKIMG $ROOTLABEL
   if [ -z $NOHOOKS ] && [ -z $NORESIZE ]; then
     # templates needs more space
-    e2fsck -f $DISKIMG
+    e2fsck -a -f $DISKIMG
     resize2fs -M $DISKIMG
   fi
 fi
