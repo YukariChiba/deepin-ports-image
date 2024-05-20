@@ -9,6 +9,11 @@ if [ -e "./$DISKIMG" ]; then
         rm ./$DISKIMG
 fi
 
+if [ -z $ROOTFS ]; then
+	echo "error: ROOTFS not set"
+	exit 1
+fi
+
 dd if=/dev/zero of=./$DISKIMG iflag=fullblock bs=1M count=$DISKSIZE
 sudo mkfs.$FSFMT ./$DISKIMG
 
