@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "blacklist evbug" | sudo tee $ROOTFS/etc/modprobe.d/evbug.conf
 echo "install realtek /bin/true" | sudo tee $ROOTFS/etc/modprobe.d/fix-eth.conf
 
 if [[ ${INCPKGS[@]} =~ initramfs-tools ]]; then

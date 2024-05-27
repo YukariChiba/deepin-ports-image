@@ -1,7 +1,6 @@
 #!/bin/bash
 
 echo "blacklist smifb" | sudo tee $ROOTFS/etc/modprobe.d/sg2042-extgpu.conf
-echo "blacklist evbug" | sudo tee $ROOTFS/etc/modprobe.d/sg2042-evbug.conf
 
 if [[ ${INCPKGS[@]} =~ initramfs-tools ]]; then
   echo "--- Update initramfs"

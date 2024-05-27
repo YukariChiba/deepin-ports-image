@@ -19,6 +19,8 @@ if [ -d "./injectbin/kerneldeb/$TARGET_DEVICE" ]; then
   sudo mkdir -p $ROOTFS/kernelinstall
   sudo cp -r ./injectbin/kerneldeb/$TARGET_DEVICE $ROOTFS/kernelinstall/
   sudo systemd-nspawn -D $ROOTFS bash -c "(dpkg -i \`find /kernelinstall -name '*.deb' | xargs\` || true) && rm -r /kernelinstall"
+  sudo mkdir -p $ROOTFS/boot/dtbs
+  sudo cp -r $ROOTFS/usr/lib/linux-image-* $ROOTFS/boot/dtbs/ || true
 fi
 
 if [ "$BOOTLOADER" == "extlinux" ]; then
