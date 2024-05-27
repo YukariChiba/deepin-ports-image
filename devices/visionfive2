@@ -8,4 +8,5 @@ BOOTSIZE=256
 PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 BOOTLOADER=extlinux
+IMGGPU=ddk119
 COMPONENTS=beige
