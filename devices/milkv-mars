@@ -1,0 +1,9 @@
+TARGET_DEVICE=milkv-mars
+TARGET_ARCH=riscv64
+DISKSIZE=11000
+BOOTSIZE=256
+PKGPROFILE=desktop-installer
+REPOPROFILE=stable-imggpu
+BOOTLOADER=extlinux
+IMGGPU=ddk119
+COMPONENTS=beige

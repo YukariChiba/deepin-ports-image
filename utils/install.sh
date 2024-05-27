@@ -21,6 +21,13 @@ if [ "$BOOTLOADER" == "extlinux" ]; then
   INCPKGS+=",u-boot-menu"
 fi
 
+if [ ! -z $IMGGPU ]; then
+  INCPKGS+=",xserver-xorg-video-pvrdri"
+  for incpkg in firmware-imggpu img-gpu-bin libegl-pvr0 libgbm1-pvr libgl1-pvr-dri libglapi-pvr; do
+    INCPKGS+=",$incpkg-$IMGGPU"
+  done
+fi
+
 if [ ! -z $EXTRAPKGS ]; then
   INCPKGS+=",$EXTRAPKGS"
 fi

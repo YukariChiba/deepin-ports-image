@@ -1,0 +1,3 @@
+deb https://ci.deepin.com/repo/deepin/deepin-community/stable/ beige main community commercial
+deb [ trusted=yes ] https://ci.deepin.com/repo/deepin/deepin-ports/v23-addons/ beige ports-kernel
+deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/Develop:/imggpu/standard/ ./
