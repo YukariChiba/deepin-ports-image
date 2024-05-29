@@ -7,3 +7,4 @@ PKGPROFILE=desktop-installer
 REPOPROFILE=stable-imggpu
 IMGGPU=ddk232
 COMPONENTS=beige
+NORESIZE=1
