@@ -7,7 +7,7 @@ if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
   if [ "$REPOPROFILE" != "stable" ]; then
     for INCREPO in "${INCREPOS[@]}"
     do
-      echo -n "$INCREPO\\n\\n" | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf
+      echo -n "$INCREPO\\n\\n" | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf > /dev/null
     done
   else
     echo -n "deb https://community-packages.deepin.com/deepin/beige/ beige main community commercial\\n\\n" | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf

@@ -3,10 +3,9 @@
 if ([ "$TARGET_ARCH" == "riscv64" ] && [ "$TARGET_DEVICE" != "sg2042" ]) || [ "$TARGET_DEVICE" == "phytiumpi" ]; then
   if [ ! -z $IMGGPU ]; then
     echo_bold "--- Set graphical effects for IMG GPU"
-    echo "QT_QUICK_BACKEND=software" | sudo tee -a $ROOTFS/etc/environment || true
-    echo "QT_OPENGL=angle" | sudo tee -a $ROOTFS/etc/environment || true
-    echo "KWIN_COMPOSE=O2ES" | sudo tee -a $ROOTFS/etc/environment || true
-    echo "QT_XCB_GL_INTEGRATION=xcb_egl" | sudo tee -a $ROOTFS/etc/environment || true
+    echo "QT_QUICK_BACKEND=software" | sudo tee -a $ROOTFS/etc/environment > /dev/null || true
+    echo "KWIN_COMPOSE=O2ES" | sudo tee -a $ROOTFS/etc/environment > /dev/null || true
+    echo "QT_XCB_GL_INTEGRATION=xcb_egl" | sudo tee -a $ROOTFS/etc/environment > /dev/null || true
   else
     echo_bold "--- Disabled graphical effects"
     if [ -f "$ROOTFS/etc/xdg/deepin-kwinrc" ]; then
