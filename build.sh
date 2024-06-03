@@ -9,7 +9,6 @@ fi
 
 . ./utils/defaults.sh
 . ./devices/$TARGET_DEVICE_CONF
-. ./utils/parseopt.sh
 if [ "$FSFMT" == "sfs" ]; then
   . ./utils/mount-sfs.sh
 else

@@ -8,3 +8,4 @@ BOOTLOADER=extlinux
 EXTRAPKGS=linux-image-6.6.20-visionfive2-66y
 IMGGPU=ddk119
 COMPONENTS=beige
+IMGPROFILE=generic
