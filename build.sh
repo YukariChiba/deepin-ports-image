@@ -22,6 +22,6 @@ if [ "$FSFMT" == "sfs" ]; then
 else
   . ./utils/cleanup.sh
 fi
-if command -v genimage &> /dev/null
+if command -v genimage &> /dev/null; then
   . ./utils/genimage.sh
 fi
