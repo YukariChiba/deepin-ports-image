@@ -4,5 +4,6 @@ injectbin/*/*/*
 *.fat32
 *.bin
 results/
+results-img/
 tmp/
 utils/hooks/phytiumpi-bt/*
