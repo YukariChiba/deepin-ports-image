@@ -1,11 +1,8 @@
 cache/
 injectbin/*/*/*
-bootbin/*
-u-boot-build/buildroot/*
 *.ext4
 *.fat32
 *.bin
-u-boot-build/
 results/
 tmp/
 utils/hooks/phytiumpi-bt/*
