@@ -1,0 +1,11 @@
+[Unit]
+Description=bt firmware process
+#Before=blueman-mechanism.service
+After=bluetooth.service
+[Service]
+Type=forking
+ExecStart=/usr/bin/realtek_bt.sh hci_start
+User=root
+[Install]
+WantedBy=multi-user.target
+
