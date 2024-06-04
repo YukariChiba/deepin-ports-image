@@ -25,4 +25,4 @@ mkdir -p \${DESTDIR}/lib/firmware
 cp -a /lib/firmware/esos.elf \${DESTDIR}/lib/firmware
 EOF
 
-chmod +x $ROOTFS/etc/initramfs-tools/hooks/copy-spacemit-firmware
+sudo chmod +x $ROOTFS/etc/initramfs-tools/hooks/copy-spacemit-firmware
