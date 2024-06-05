@@ -26,3 +26,5 @@ cp -a /lib/firmware/esos.elf \${DESTDIR}/lib/firmware
 EOF
 
 sudo chmod +x $ROOTFS/etc/initramfs-tools/hooks/copy-spacemit-firmware
+
+sudo systemd-nspawn -D $ROOTFS bash -c "update-initramfs -k all -c || true"
