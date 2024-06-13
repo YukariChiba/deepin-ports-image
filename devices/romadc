@@ -1,12 +1,10 @@
-# bootloader : extracted from https://github.com/DC-DeepComputing/ROMA_LAPTOP_JH7110_RV-L1B/releases/tag/t-sdk3.6.1-debian12
-# mode : binlayout extlinux
-
 TARGET_DEVICE=romadc
 TARGET_ARCH=riscv64
-DISKSIZE=11000
+DISKSIZE=13000
 BOOTSIZE=256
 PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 BOOTLOADER=extlinux
 IMGGPU=ddk119
 COMPONENTS=beige
+IMGPROFILE=generic
