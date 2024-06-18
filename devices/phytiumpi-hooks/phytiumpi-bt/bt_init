@@ -1,0 +1,24 @@
+#!/bin/bash
+function kill_rtk() {
+    pid=`pidof rtk_hciattach`
+    if [ -n "$pid" ];then
+        #echo $pid
+	kill -9 $pid
+    fi
+}
+
+function bt_init() {
+    # kill_rtk
+    # service  bluetooth restart
+    # sleep 3
+    # echo 0 > /sys/class/rfkill/rfkill0/state
+    # sleep 2
+    # echo 1 > /sys/class/rfkill/rfkill0/state
+    # sleep 2
+    # rtk_hciattach -n -s 115200 /dev/ttyS1 rtk_h5 &
+    # sleep 5
+    rtk_hciattach -n -s 115200 /dev/ttyAMA0 rtk_h5 &
+}
+
+bt_init
+
