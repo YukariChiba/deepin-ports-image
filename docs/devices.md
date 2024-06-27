@@ -1,4 +1,8 @@
-# device config
+# devices
+
+## device config
+
+location: devices/{device}
 
 - ROOTFMT: root partition type, ext4 or fat32
 - BOOTFMT: boot partition type, ext4 or fat32
@@ -15,3 +19,9 @@
 - COMPONENTS: component in repo, usually beige
 - EXTRAPKGS: extra packages to install, seperated by ','
 - IMGPROFILE: full image profile, unset to disable image generation
+
+## device hooks
+
+location: devices/{device}-hooks/{hook}
+
+executed after global hooks

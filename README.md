@@ -1,20 +1,16 @@
 # deepin-ports image creation tool
 
-Currently works with:
+For supported devices, check `./devices/`.
 
-- LicheePi 4A
-- Phytium Pi
-- DC ROMA
+Non-free `injectbin` submodule is needed for some boards
 
 ## Usage
 
-- Download latest kernel image (with dtb) to `linux-image.deb`
-- Download uboot image
-- Place firmware files into bootbin (currently lpi4a)
-- Use `mkimg-noconf{,-minimal}.sh` to create boot/root image
-- Use `flash_fastboot.sh` to flash uboot/boot/root image
+```
+COMPRESS=1 # set if compressed tar.xz file is needed
+./build.sh {device}
+```
 
-## TODO
+## Docs
 
-- customized kernel deb url
-
+See `./docs/`.
