@@ -6,5 +6,7 @@ BOOTSIZE=400
 PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 BOOTLOADER=extlinux
-IMGGPU=ddk118
+# gpu for 6.6 is not ready
+#IMGGPU=ddk118
+AMDGPU=1
 COMPONENTS=beige
