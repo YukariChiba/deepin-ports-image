@@ -7,6 +7,9 @@ if [ ! -f "./devices/$TARGET_DEVICE_CONF" ]; then
   exit 1
 fi
 
+sudo systemctl restart systemd-binfmt
+sleep 1
+
 . ./utils/defaults.sh
 . ./devices/$TARGET_DEVICE_CONF
 if [ "$FSFMT" == "sfs" ]; then

@@ -11,6 +11,10 @@ if [ ! -f "./profiles/packages/$PKGPROFILE.txt" ]; then
 fi
 
 readarray -t INCREPOS < ./profiles/repos/$REPOPROFILE.txt
+if [ -f "./profiles/repos/devices/$TARGET_DEVICE.txt" ]; then
+  readarray -t INCREPOS_DEV < ./profiles/repos/devices/$TARGET_DEVICE.txt
+  INCREPOS=("${INCREPOS[@]}" "${INCREPOS_DEV[@]}")
+fi
 INCPKGS+="`cat ./profiles/packages/$PKGPROFILE.txt | grep -v "^-" | xargs | sed -e 's/ /,/g'`"
 
 if [ "$BOOTLOADER" == "extlinux" ] || [ "$BOOTLOADER" == "grub" ]; then

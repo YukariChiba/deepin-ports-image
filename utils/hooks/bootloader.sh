@@ -17,8 +17,8 @@ fi
 if [ -d "./injectbin/kerneldeb/$TARGET_DEVICE" ]; then
   echo_bold "--- Found deb kernel"
   sudo mkdir -p $ROOTFS/kernelinstall
-  sudo cp -r ./injectbin/kerneldeb/$TARGET_DEVICE $ROOTFS/kernelinstall/
-  sudo systemd-nspawn -D $ROOTFS bash -c "(dpkg -i \`find /kernelinstall -name '*.deb' | xargs\` || true) && rm -r /kernelinstall"
+  sudo cp ./injectbin/kerneldeb/$TARGET_DEVICE/*.deb $ROOTFS/kernelinstall/ || true
+  sudo systemd-nspawn -D $ROOTFS bash -c "(dpkg -i /kernelinstall/*.deb || true) && rm -r /kernelinstall"
   sudo mkdir -p $ROOTFS/boot/dtbs
   sudo cp -r $ROOTFS/usr/lib/linux-image-* $ROOTFS/boot/dtbs/ || true
 fi
