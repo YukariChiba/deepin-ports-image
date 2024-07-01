@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# phytium pi: MBR
-if [ "$TARGET_DEVICE" != "phytiumpi" ] && [ "$TARGET_DEVICE" != "premier-p550" ]; then
+if [ -z $NOREPARTROOT ]; then
   sudo mkdir -p $ROOTFS/etc/repart.d
   cat <<EOF | sudo tee $ROOTFS/etc/repart.d/growroot.conf
 [Partition]

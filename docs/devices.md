@@ -7,6 +7,8 @@ location: devices/{device}
 - ROOTFMT: root partition type, ext4 or fat32
 - BOOTFMT: boot partition type, ext4 or fat32
 - NORESIZE: do not shrink root partition on creation
+- NOGROWROOT: do not set systemd grow in fstab for root partition for resize2fs
+- NOREPARTROOT: do not set systemd-repart to expand root partition in GPT
 - TARGET_DEVICE: device name
 - TARGET_ARCH: device arch, same as deepin repo
 - DISKSIZE: root disk size, may reduced later

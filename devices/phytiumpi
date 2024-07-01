@@ -6,3 +6,5 @@ PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 COMPONENTS=beige
 IMGPROFILE=phytiumpi
+# MBR
+NOREPARTROOT=1
