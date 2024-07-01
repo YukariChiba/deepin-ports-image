@@ -33,7 +33,7 @@ if [ "$BOOTLOADER" == "extlinux" ]; then
   fi
   if [[ ${INCPKGS[@]} =~ initramfs-tools ]]; then
     echo "--- Update initramfs"
-    sudo systemd-nspawn -D $ROOTFS bash -c "depmod -a && update-initramfs -k all -c || true"
+    sudo systemd-nspawn -D $ROOTFS bash -c "update-initramfs -k all -c || true"
   fi
   if [ -f $ROOTFS/sbin/u-boot-update ]; then
     echo "--- u-boot-menu installed, update config"
