@@ -11,4 +11,5 @@ if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
   echo -n '"' | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf
   echo ""
   sudo ln -s ../deepin-installer-first-boot.service $ROOTFS/usr/lib/systemd/system/multi-user.target.wants/deepin-installer-first-boot.service
+  sudo rm $ROOTFS/usr/lib/systemd/system/deepin-installer.service
 fi

@@ -21,4 +21,10 @@ if [ "$FSFMT" == "ext4" ]; then
     e2fsck -a -f $DISKIMG
     resize2fs -M $DISKIMG
   fi
+  if [ -z $NOTAILSPACE ]; then
+    e2fsck -a -f $DISKIMG
+    dd if=/dev/zero of=$DISKIMG bs=256M count=1 oflag=append conv=notrunc
+    e2fsck -a -f $DISKIMG
+    resize2fs $DISKIMG 
+  fi
 fi

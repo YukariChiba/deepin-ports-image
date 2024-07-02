@@ -9,6 +9,7 @@ location: devices/{device}
 - NORESIZE: do not shrink root partition on creation
 - NOGROWROOT: do not set systemd grow in fstab for root partition for resize2fs
 - NOREPARTROOT: do not set systemd-repart to expand root partition in GPT
+- NOTAILSPACE: do not add tail space (256M) to the end of root partition
 - TARGET_DEVICE: device name
 - TARGET_ARCH: device arch, same as deepin repo
 - DISKSIZE: root disk size, may reduced later
