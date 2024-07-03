@@ -1,7 +1,7 @@
 # bootloader : extracted from https://github.com/starfive-tech/VisionFive2
 # mode : binlayout extlinux
 
-TARGET_DEVICE=visionfive2
+TARGET_DEVICE=jh7110
 TARGET_ARCH=riscv64
 DISKSIZE=14000
 BOOTSIZE=256
