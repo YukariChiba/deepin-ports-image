@@ -4,6 +4,6 @@
 
 ## uboot config
 
-Location: bootconfig/uboot/{device}
+Location: `bootconfig/uboot/{device}`
 
-file for /etc/defaults/uboot, used to generate extlinux.conf
+file for `/etc/defaults/uboot`, used to generate `extlinux.conf`

@@ -9,6 +9,7 @@ PKGPROFILE=desktop
 REPOPROFILE=main
 ROOTLABEL=root
 BOOTLABEL=boot
+TAILSPACE=256M
 
 function echo_bold()
 {

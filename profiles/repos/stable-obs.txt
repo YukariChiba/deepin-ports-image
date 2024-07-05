@@ -1,5 +1,0 @@
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/stable:/main/stable/ ./ 
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/stable:/community/stable/ ./ 
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/stable:/dde/stable/ ./
-deb [ trusted=yes ] https://ci.deepin.com/repo/obs/deepin:/GPL%3A/Rust/standard/ ./
-deb [ trusted=yes ] https://ci.deepin.com/repo/deepin/deepin-ports/v23-addons/ beige ports-kernel

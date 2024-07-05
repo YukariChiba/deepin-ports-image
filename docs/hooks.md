@@ -1,5 +1,5 @@
 # Global hooks
 
-Location: utils/hooks/{hook}.sh
+Location: `utils/hooks/{hook}.sh`
 
 Executed after debootstrap
