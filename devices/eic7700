@@ -7,9 +7,8 @@ PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 BOOTLOADER=extlinux
 EXTRAPKGS=linux-image-6.6.18-eic7700-66y
-# gpu for 6.6 is not ready
-#IMGGPU=ddk118
-AMDGPU=1
+IMGGPU=ddk118
+#AMDGPU=1
 COMPONENTS=beige
 # strange partition types
 NOREPARTROOT=1

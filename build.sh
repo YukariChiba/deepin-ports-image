@@ -29,8 +29,9 @@ if command -v genimage &> /dev/null; then
 fi
 if [ ! -z $COMPRESS ]; then
   export XZ_OPT='-T0'
+  pushd results-img
   tar cJvf \
-    results-img/deepin-23-beige-preview-$TARGET_ARCH-$TARGET_DEVICE-$(date "+%Y%m%d")-$(date "+%H%M%S").tar.xz \
-    -C ./results-img \
+    deepin-23-beige-preview-$TARGET_ARCH-$TARGET_DEVICE-$(date "+%Y%m%d")-$(date "+%H%M%S").tar.xz \
     ./deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE.* 
+  popd
 fi
