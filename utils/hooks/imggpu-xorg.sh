@@ -9,4 +9,6 @@ Section "Device"
         Option "kmsdev" "$IMGGPU_DISP_DEV"
 EndSection
 EOF
+
+  echo "pvrsrvkm" | sudo tee $ROOTFS/etc/modules-load.d/imggpu.conf
 fi

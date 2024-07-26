@@ -6,5 +6,5 @@ BOOTSIZE=256
 PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 IMGGPU=ddk117
-IMGGPU_DISP_DEV=/dev/dri/by-path/platform-display-subsystem-card
+IMGGPU_DISP_DEV=/dev/dri/card0
 COMPONENTS=beige
