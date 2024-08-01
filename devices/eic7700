@@ -10,5 +10,6 @@ EXTRAPKGS=linux-image-6.6.36-eic770x-rockos-66y
 IMGGPU=ddk118
 #AMDGPU=1
 COMPONENTS=beige
+IMGGPU_DISP_DEV=/dev/dri/card0
 # strange partition types
 NOREPARTROOT=1
