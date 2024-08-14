@@ -7,4 +7,6 @@ PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 IMGGPU=ddk117
 IMGGPU_DISP_DEV=/dev/dri/card0
+EXTRAPKGS=xserver-xorg-video-thead
+BOOTLOADER=extlinux
 COMPONENTS=beige

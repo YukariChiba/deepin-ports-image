@@ -23,6 +23,13 @@ if [ -d "./injectbin/kerneldeb/$TARGET_DEVICE" ]; then
   sudo cp -r $ROOTFS/usr/lib/linux-image-* $ROOTFS/boot/dtbs/ || true
 fi
 
+if [ -n "$(ls -A $ROOTFS/lib/modules/ 2>/dev/null)" ]
+then
+  for d in $ROOTFS/lib/modules/* ; do
+    sudo systemd-nspawn -D $ROOTFS bash -c "depmod -a `basename $d`"
+  done
+fi
+
 if [ "$BOOTLOADER" == "extlinux" ]; then
   echo_bold "--- Use extlinux bootloader"
   DTBP=`ls $ROOTFS/usr/lib/ | grep linux-image- | head -n 1`

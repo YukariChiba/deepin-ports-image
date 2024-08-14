@@ -1,0 +1,11 @@
+[Unit]
+Description=Light Bluetooth
+After=network.target
+ConditionPathIsDirectory=/sys/class/bluetooth
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/bt-init start
+
+[Install]
+WantedBy=multi-user.target

@@ -15,9 +15,9 @@ if ([ "$TARGET_ARCH" == "riscv64" ] && [ "$TARGET_DEVICE" != "sg2042" ]) || [ "$
         sudo sed -i '/\[Plugins\]/amagiclampEnabled=false' $ROOTFS/etc/xdg/deepin-kwinrc || true
       fi
       echo "QT_QUICK_BACKEND=software" | sudo tee -a $ROOTFS/etc/environment || true
-      if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
-        sudo sed -i 's/setup_kwin_blur$//' $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
-      fi
     fi
+  fi
+  if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
+    sudo sed -i '/setup_kwin_blur$/d; /start_kwin ||/d' $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
   fi
 fi
