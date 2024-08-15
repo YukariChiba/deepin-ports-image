@@ -6,5 +6,5 @@ BOOTSIZE=256
 PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 COMPONENTS=beige
-EXTRAPKGS=linux-image-5.10.113-th1520
+EXTRAPKGS=linux-image-5.10.113-th1520,xserver-xorg-video-thead
 BOOTLOADER=extlinux
