@@ -1,8 +1,5 @@
-# bootloader : https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20231210/u-boot-with-spl-lpi4a.bin
-# mode : fastboot
-
 BOOTFMT=ext4
-TARGET_DEVICE=lpi4a
+TARGET_DEVICE=th1520
 TARGET_ARCH=riscv64
 DISKSIZE=11000
 BOOTSIZE=256
