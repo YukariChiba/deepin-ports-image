@@ -27,6 +27,11 @@ fi
 if command -v genimage &> /dev/null; then
   . ./utils/genimage.sh
 fi
+pushd results-img
+for checksum in sha256sum md5sum; do
+  $checksum deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE.* > deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE.$checksum
+done
+popd
 if [ ! -z $COMPRESS ]; then
   export XZ_OPT='-T0'
   pushd results-img

@@ -14,6 +14,10 @@ if [ "$BOOTFMT" == "ext4" ] && [ "$BOOTSIZE" -ne "0" ]; then
   e2label $BOOTIMG $BOOTLABEL
 fi
 
+if [ "$BOOTFMT" == "fat32" ] && [ "$BOOTSIZE" -ne "0" ]; then
+  fatlabel $BOOTIMG $BOOTLABEL
+fi
+
 if [ "$FSFMT" == "ext4" ]; then
   e2label $DISKIMG $ROOTLABEL
   e2fsck -a -f $DISKIMG
