@@ -29,7 +29,10 @@ if command -v genimage &> /dev/null; then
 fi
 pushd results-img
 for checksum in sha256sum md5sum; do
-  $checksum deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE.*.* > deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE.$checksum
+  $checksum deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE.* > deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE-$checksum
+done
+for checksum in sha256sum md5sum; do
+  mv deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE-$checksum deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE.$checksum
 done
 popd
 if [ ! -z $COMPRESS ]; then
