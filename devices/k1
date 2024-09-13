@@ -1,10 +1,10 @@
 BOOTFMT=ext4
-TARGET_DEVICE=musebox
+TARGET_DEVICE=k1
 TARGET_ARCH=riscv64
 DISKSIZE=13000
 BOOTSIZE=256
 PKGPROFILE=desktop-installer
 REPOPROFILE=stable
-BOOTLOADER=extlinux
 IMGGPU=ddk232
+EXTRAPKGS=spacemit-uart-bt,spacemit-flash-dtbs
 COMPONENTS=beige
