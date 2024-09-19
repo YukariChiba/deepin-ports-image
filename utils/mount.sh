@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ROOTFS=`mktemp -d ./tmp/tmp.XXXXXX`
-IMGPFX="deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE"
 DISKIMG="./results/$IMGPFX.root.$FSFMT"
 BOOTIMG="./results/$IMGPFX.boot.$BOOTFMT"
 

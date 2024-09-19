@@ -4,7 +4,7 @@
 
 location: `devices/{device}`
 
-- `ROOTFMT`: root partition type, ext4 or fat32
+- `ROOTFMT`: root partition type, ext4 or fat32 or tarball
 - `BOOTFMT`: boot partition type, ext4 or fat32
 - `NOGROWROOT`: do not set systemd grow in fstab for root partition for resize2fs
 - `NOREPARTROOT`: do not set systemd-repart to expand root partition in GPT

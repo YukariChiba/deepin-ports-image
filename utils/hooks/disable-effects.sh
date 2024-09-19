@@ -1,6 +1,10 @@
 #!/bin/bash
 
-if ([ "$TARGET_ARCH" == "riscv64" ] && [ "$TARGET_DEVICE" != "sg2042" ]) || [ "$TARGET_DEVICE" == "phytiumpi" ]; then
+if (
+    [ "$TARGET_ARCH" == "riscv64" ] &&
+    [ "$TARGET_DEVICE" != "sg2042" ] &&
+    [[ ${INCPKGS[@]} =~ "deepin-desktop-environment-base" ]]
+   ) || [ "$TARGET_DEVICE" == "phytiumpi" ]; then
   if [ ! -z $IMGGPU ]; then
     echo_bold "--- Set graphical effects for IMG GPU"
     echo "QT_QUICK_BACKEND=software" | sudo tee -a $ROOTFS/etc/environment > /dev/null || true

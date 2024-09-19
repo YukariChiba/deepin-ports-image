@@ -4,6 +4,7 @@ mkdir -p tmp results
 
 FSFMT=ext4
 BOOTFMT=fat32
+BOOTSIZE=0
 COMPONENTS=main,community,commercial
 PKGPROFILE=desktop
 REPOPROFILE=main

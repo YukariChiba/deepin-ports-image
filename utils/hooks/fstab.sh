@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z $NOGROWROOT ]; then
+if [ -z $NOGROWROOT ] && [ "$FSFMT" != "tarball" ]; then
   cat <<EOF | sudo tee -a $ROOTFS/etc/fstab
 LABEL=root / ext4 defaults,rw,errors=remount-ro,x-systemd.growfs 0 0
 EOF

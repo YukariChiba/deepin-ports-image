@@ -1,7 +1,5 @@
 #!/bin/bash
 
-mkdir -p results-img
-
 if [ ! -z $IMGPROFILE ]; then
   if [ -f ./genimage/$IMGPROFILE.cfg ]; then
     GENIMGCFG=`mktemp ./tmp/tmp.genimage.XXXXXX`
@@ -19,6 +17,4 @@ if [ ! -z $IMGPROFILE ]; then
     echo "err: genimage profile not found"
     exit 1
   fi
-else
-  mv ./results/$IMGPFX.* ./results-img/
 fi

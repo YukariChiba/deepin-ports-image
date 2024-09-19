@@ -1,0 +1,6 @@
+FSFMT=tarball
+TARGET_DEVICE=tarball
+TARGET_ARCH=riscv64
+PKGPROFILE=minimal
+REPOPROFILE=stable
+COMPONENTS=beige
