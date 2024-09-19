@@ -6,5 +6,6 @@ PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 BOOTLOADER=extlinux
 IMGGPU=ddk119
+EXTRAPKGS=linux-image-5.15.0-jh7110-dcroma
 COMPONENTS=beige
 IMGPROFILE=generic

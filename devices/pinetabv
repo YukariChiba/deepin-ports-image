@@ -6,5 +6,6 @@ PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 BOOTLOADER=extlinux
 IMGGPU=ddk119
+EXTRAPKGS=linux-image-5.15.131-pinetab-v
 COMPONENTS=beige
 IMGPROFILE=generic

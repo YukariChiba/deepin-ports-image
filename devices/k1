@@ -6,5 +6,5 @@ BOOTSIZE=256
 PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 IMGGPU=ddk232
-EXTRAPKGS=spacemit-uart-bt,spacemit-flash-dtbs
+EXTRAPKGS=linux-image-6.6.36,spacemit-uart-bt,spacemit-flash-dtbs
 COMPONENTS=beige
