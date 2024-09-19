@@ -7,5 +7,5 @@ PKGPROFILE=desktop-installer
 REPOPROFILE=stable
 COMPONENTS=beige
 IMGGPU=ddk117
-EXTRAPKGS=linux-image-5.10.113-th1520-revyos-510,xserver-xorg-video-thead,th1520-boot-firmware,th1520-vendor-opensbi,th1520-npu,th1520-vpu
+EXTRAPKGS=linux-image-5.10.113-th1520-revyos-510,xserver-xorg-video-thead,th1520-boot-firmware,th1520-vendor-opensbi,th1520-npu,th1520-vpu,aic8800-firmware,rtl8723ds-firmware
 BOOTLOADER=extlinux
