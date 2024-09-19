@@ -17,7 +17,7 @@ if [ -f "./profiles/repos/devices/$TARGET_DEVICE.txt" ]; then
 fi
 INCPKGS+="`cat ./profiles/packages/$PKGPROFILE.txt | grep -v "^-" | xargs | sed -e 's/ /,/g'`"
 
-if [ "$BOOTLOADER" == "extlinux" ] || [ "$BOOTLOADER" == "grub" ]; then
+if [ "$BOOTLOADER" == "extlinux" ]; then
   INCPKGS+=",initramfs-tools"
 fi
 

@@ -1,7 +1,5 @@
 # boot config
 
-## grub config
-
 ## uboot config
 
 Location: `bootconfig/uboot/{device}`

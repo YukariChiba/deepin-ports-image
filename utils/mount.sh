@@ -27,12 +27,7 @@ if [ "$BOOTSIZE" -ne "0" ]; then
         else
                 sudo mkfs.$BOOTFMT ./$BOOTIMG
         fi
-        if [ "$BOOTLOADER" == "grub" ]; then
-          sudo mkdir -p $ROOTFS/boot/efi
-          sudo mount ./$BOOTIMG $ROOTFS/boot/efi
-        else
-          sudo mkdir -p $ROOTFS/boot
-          sudo mount ./$BOOTIMG $ROOTFS/boot
-        fi
+        sudo mkdir -p $ROOTFS/boot
+        sudo mount ./$BOOTIMG $ROOTFS/boot
 fi
 

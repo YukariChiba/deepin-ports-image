@@ -16,7 +16,7 @@ location: `devices/{device}`
 - `BOOTSIZE`: boot disk size, 0 to disable boot partition
 - `PKGPROFILE`: package list profile
 - `REPOPROFILE`: repo list profile
-- `BOOTLOADER`: bootloader type, grub or extlinux, unset to disable bootloader
+- `BOOTLOADER`: bootloader type, currently extlinux only, unset to disable bootloader
 - `IMGGPU`: add img gpu driver, must be ddk*
 - `IMGGPU_DISP_DEV`: specify display device, default to be `/dev/dri/card0`
 - `AMDGPU`: use external gpu, allows desktop effects
