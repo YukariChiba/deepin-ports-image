@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 bt_hciattach="rtk_hciattach"
 
 start_hci_attach()

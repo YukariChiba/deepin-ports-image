@@ -1,0 +1,11 @@
+BOOTFMT=ext4
+TARGET_DEVICE=p1
+TARGET_ARCH=riscv64
+DISKSIZE=14000
+BOOTSIZE=256
+PKGPROFILE=desktop-installer
+REPOPROFILE=stable
+COMPONENTS=beige
+IMGGPU=ddk117
+EXTRAPKGS=xserver-xorg-video-thead,th1520-boot-firmware,th1520-vendor-opensbi,th1520-npu,th1520-vpu,aic8800-firmware,rtl8723ds-firmware
+BOOTLOADER=extlinux
