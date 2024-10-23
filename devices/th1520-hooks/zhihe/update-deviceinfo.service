@@ -1,0 +1,13 @@
+[Unit]
+Before=systemd-user-sessions.service
+Wants=network-online.target
+After=network-online.target
+ConditionPathExists=!/etc/deviceinfo.ini
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/update-deviceinfo
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
