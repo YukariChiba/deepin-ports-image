@@ -15,7 +15,7 @@ EOF
 fi
 
 cat <<EOF | sudo tee -a $ROOTFS/etc/fstab
-PARTLABEL=swap swap swap defaults,nofail,x-systemd.makefs 0 0
+PARTLABEL=swap swap swap defaults,nofail,x-systemd.makefs,x-systemd.device-timeout=5 0 0
 EOF
 
 fi
