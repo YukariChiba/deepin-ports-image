@@ -1,0 +1,11 @@
+[Unit]
+Description=Bluetooth
+After=network.target
+ConditionPathIsDirectory=/sys/class/bluetooth
+
+[Service]
+Type=forking
+ExecStart=/etc/bt-init.sh start
+
+[Install]
+WantedBy=multi-user.target

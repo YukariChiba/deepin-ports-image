@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 bt_hciattach="rtk_hciattach"
 
 start_hci_attach()
@@ -8,17 +8,6 @@ start_hci_attach()
 		killall "$bt_hciattach"
 		sleep 1
 	}
-
-        gpiopath=/sys/class/gpio/gpio438
-	[ ! -d "$gpiopath" ] && {
-	  echo 438 > /sys/class/gpio/export
-	  sleep 0.3
-	}
-	echo "out" > $gpiopath/direction
-	sleep 0.3
-	echo "0" > $gpiopath/value
-	sleep 0.3
-	echo "1" > $gpiopath/value
 
 	#bt rfkill init
 	rfkill block bluetooth
