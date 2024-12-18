@@ -7,6 +7,6 @@ PKGPROFILE=desktop-installer
 REPOPROFILE=v23
 IMGGPU=ddk117
 IMGGPU_DISP_DEV=/dev/dri/card0
-EXTRAPKGS=linux-image-5.10.113-zhbook-510,xserver-xorg-video-thead,th1520-boot-firmware,th1520-vendor-opensbi,th1520-npu,th1520-vpu,rtl8723ds-firmware,aic8800-firmware,libubootenv-tool
+EXTRAPKGS=linux-image-5.10.113-zhbook-510,xserver-xorg-video-thead,th1520-boot-firmware,th1520-vendor-opensbi,th1520-npu,th1520-vpu,rtl8723ds-firmware,aic8800-firmware,libubootenv-tool,chromium
 BOOTLOADER=extlinux
 COMPONENTS=beige
