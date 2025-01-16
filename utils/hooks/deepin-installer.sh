@@ -16,4 +16,6 @@ if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
 
   sudo ln -s ../deepin-installer-first-boot.service $ROOTFS/usr/lib/systemd/system/multi-user.target.wants/deepin-installer-first-boot.service
   sudo rm $ROOTFS/usr/lib/systemd/system/deepin-installer.service
+
+  sudo sed -i '/setup_kwin_blur$/d; /start_kwin ||/d' $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
 fi

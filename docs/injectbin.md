@@ -26,12 +26,6 @@ Location: `injectbin/kerneldeb/{device}/*.deb`
 
 Binary debian kernel to install, dtb will be extracted to `/boot/dtbs/linux-image-*`
 
-## Extra Packages
-
-Location: `injectbin/extradeb/{device}/*.deb`
-
-Extra deb packages to install
-
 ## Firmwares
 
 Location: `injectbin/firmwares/{device}`

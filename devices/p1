@@ -6,6 +6,5 @@ BOOTSIZE=180
 PKGPROFILE=desktop-installer
 REPOPROFILE=v23
 COMPONENTS=beige
-IMGGPU=ddk117
-EXTRAPKGS=linux-image-5.10.113-zhihe-510,xserver-xorg-video-thead,th1520-npu,th1520-vpu,chromium
+EXTRAPKGS=linux-image-5.10.113-zhihe-510,deepin-ports-profile-th1520,chromium
 BOOTLOADER=extlinux

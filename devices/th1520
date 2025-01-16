@@ -6,6 +6,5 @@ BOOTSIZE=256
 PKGPROFILE=desktop-installer
 REPOPROFILE=v23
 COMPONENTS=beige
-IMGGPU=ddk117
-EXTRAPKGS=linux-image-5.10.113-th1520-revyos-510,xserver-xorg-video-thead,th1520-boot-firmware,th1520-vendor-opensbi,th1520-npu,th1520-vpu,aic8800-firmware,rtl8723ds-firmware
+EXTRAPKGS=linux-image-5.10.113-th1520-revyos-510,deepin-ports-profile-th1520
 BOOTLOADER=extlinux

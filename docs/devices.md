@@ -17,9 +17,6 @@ location: `devices/{device}`
 - `PKGPROFILE`: package list profile
 - `REPOPROFILE`: repo list profile
 - `BOOTLOADER`: bootloader type, currently extlinux only, unset to disable bootloader
-- `IMGGPU`: add img gpu driver, must be ddk*
-- `IMGGPU_DISP_DEV`: specify display device, default to be `/dev/dri/card0`
-- `AMDGPU`: use external gpu, allows desktop effects
 - `COMPONENTS`: component in repo, usually beige
 - `EXTRAPKGS`: extra packages to install, seperated by ','
 - `IMGPROFILE`: full image profile, unset to disable image generation
