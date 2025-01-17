@@ -4,6 +4,6 @@ TARGET_ARCH=riscv64
 DISKSIZE=13000
 BOOTSIZE=256
 PKGPROFILE=desktop-installer
-REPOPROFILE=v23
+REPOPROFILE=23
 EXTRAPKGS=linux-image-6.6.36,deepin-ports-profile-k1
 COMPONENTS=beige
