@@ -1,4 +1,15 @@
 deb https://ci.deepin.com/repo/deepin/deepin-community/stable/ beige main community commercial
 deb https://ci.deepin.com/repo/deepin/deepin-community/testing/ unstable main community commercial
-deb https://ci.deepin.com/repo/deepin/deepin-community/testing/ unstable/v25 main community commercial
+deb https://ci.deepin.com/repo/deepin/deepin-community/testing/ unstable/25 main community commercial
 deb [ trusted=yes ] https://ci.deepin.com/repo/deepin/deepin-ports/v23-addons/ beige ports-apps ports-kernel ports-imggpu ports-tmpfix ports-profiles
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2215:/dde-build/testing/ ./
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2215:/dde/testing/ ./
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2264:/dde/testing/ ./
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2049:/commercial/testing/ ./
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2131:/commercial/testing/ ./
+deb [trusted=yes] http://10.20.64.72:82/deepin:/CI:/TestingIntegration:/test-integration-pr-2173:/commercial/testing/ ./
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2048:/commercial/testing/ ./
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2429:/community/testing/ ./
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2449/testing/ ./
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2454/testing/ ./
+deb [trusted=yes] http://ci.deepin.com/repo/obs/deepin:/CI:/TestingIntegration:/test-integration-pr-2460:/dde/testing/ ./

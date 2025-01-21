@@ -63,7 +63,7 @@ if [ ! -z $COMPRESS ]; then
   export XZ_OPT='-T0'
   pushd results-img
   tar cJvf \
-    deepin-$REPO_PROFILE-beige-preview-$TARGET_ARCH-$TARGET_DEVICE-$(date "+%Y%m%d")-$(date "+%H%M%S").tar.xz \
+    deepin-$REPOPROFILE-beige-preview-$TARGET_ARCH-$TARGET_DEVICE-$(date "+%Y%m%d")-$(date "+%H%M%S").tar.xz \
     ./$IMGPFX.* 
   popd
 fi
