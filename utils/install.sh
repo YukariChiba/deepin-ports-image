@@ -17,10 +17,6 @@ if [ -f "./profiles/repos/devices/$TARGET_DEVICE.txt" ]; then
 fi
 INCPKGS+="`cat ./profiles/packages/$PKGPROFILE.txt | grep -v "^-" | xargs | sed -e 's/ /,/g'`"
 
-if [ "$BOOTLOADER" == "extlinux" ]; then
-  INCPKGS+=",initramfs-tools,u-boot-menu"
-fi
-
 if [ ! -z $EXTRAPKGS ]; then
   INCPKGS+=",$EXTRAPKGS"
 fi

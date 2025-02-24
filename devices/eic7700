@@ -6,7 +6,7 @@ BOOTSIZE=400
 PKGPROFILE=desktop-installer
 REPOPROFILE=23
 BOOTLOADER=extlinux
-EXTRAPKGS=linux-image-6.6.47-eic770x-rockos-66y,deepin-ports-profile-eic7700
+EXTRAPKGS=linux-image-6.6.77-eic770x-rockos-66y,deepin-ports-profile-eic7700
 COMPONENTS=beige
 # strange partition types
 NOREPARTROOT=1

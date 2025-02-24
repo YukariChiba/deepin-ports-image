@@ -14,20 +14,16 @@ if [ -d "./injectbin/kernelbin/$TARGET_DEVICE" ]; then
   fi
 fi
 
-if [ -d "./injectbin/kerneldeb/$TARGET_DEVICE" ]; then
-  echo_bold "--- Found deb kernel"
-  sudo mkdir -p $ROOTFS/kernelinstall
-  sudo cp ./injectbin/kerneldeb/$TARGET_DEVICE/*.deb $ROOTFS/kernelinstall/ || true
-  sudo systemd-nspawn -D $ROOTFS bash -c "(dpkg -i /kernelinstall/*.deb || true) && rm -r /kernelinstall"
-  sudo mkdir -p $ROOTFS/boot/dtbs
-  sudo cp -r $ROOTFS/usr/lib/linux-image-* $ROOTFS/boot/dtbs/ || true
-fi
-
 if [ -n "$(ls -A $ROOTFS/lib/modules/ 2>/dev/null)" ]
 then
   for d in $ROOTFS/lib/modules/* ; do
     sudo systemd-nspawn -D $ROOTFS bash -c "depmod -a `basename $d`"
   done
+fi
+
+if [ -f $ROOTFS/sbin/update-initramfs ]; then
+  echo "--- Update initramfs"
+  sudo systemd-nspawn -D $ROOTFS bash -c "update-initramfs -k all -c || true"
 fi
 
 if [ "$BOOTLOADER" == "extlinux" ]; then
@@ -38,10 +34,6 @@ if [ "$BOOTLOADER" == "extlinux" ]; then
     sudo mkdir -p $ROOTFS/boot/dtbs
     sudo cp -r $ROOTFS/usr/lib/$DTBP $ROOTFS/boot/dtbs/$DTBP
   fi
-  if [[ ${INCPKGS[@]} =~ initramfs-tools ]]; then
-    echo "--- Update initramfs"
-    sudo systemd-nspawn -D $ROOTFS bash -c "update-initramfs -k all -c || true"
-  fi
   if [ -f $ROOTFS/sbin/u-boot-update ]; then
     echo "--- u-boot-menu installed, update config"
     if [ -f "./bootconfig/uboot/$TARGET_DEVICE" ]; then
@@ -49,12 +41,5 @@ if [ "$BOOTLOADER" == "extlinux" ]; then
     fi
     sudo mkdir -p $ROOTFS/boot/extlinux
     sudo systemd-nspawn -D $ROOTFS bash -c "u-boot-update || true"
-  fi
-fi
-
-if [ -z $BOOTLOADER ]; then
-  if [[ ${INCPKGS[@]} =~ initramfs-tools ]]; then
-    echo "--- Update initramfs"
-    sudo systemd-nspawn -D $ROOTFS bash -c "update-initramfs -k all -c || true"
   fi
 fi
