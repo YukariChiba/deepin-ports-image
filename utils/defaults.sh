@@ -3,7 +3,7 @@
 mkdir -p tmp results
 
 FSFMT=ext4
-BOOTFMT=fat32
+BOOTFMT=ext4
 BOOTSIZE=0
 COMPONENTS=main,community,commercial
 PKGPROFILE=desktop
