@@ -1,0 +1,8 @@
+[Unit]
+[Service]
+Type=forking
+ExecStart=/usr/bin/phytiumpi-pwm
+User=root
+[Install]
+WantedBy=multi-user.target
+
