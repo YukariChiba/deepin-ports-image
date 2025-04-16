@@ -29,6 +29,9 @@ sudo mmdebstrap \
 	--hook-dir=/usr/share/mmdebstrap/hooks/merged-usr \
 	--include=$INCPKGS \
 	--skip=check/empty \
+	--aptopt='APT::Get::AllowUnauthenticated "true"' \
+	--aptopt='Acquire::AllowInsecureRepositories "true"' \
+	--aptopt='Acquire::AllowDowngradeToInsecureRepositories "true"' \
 	--architectures=$TARGET_ARCH $COMPONENTS \
 	$ROOTFS \
 	"${INCREPOS[@]}"
