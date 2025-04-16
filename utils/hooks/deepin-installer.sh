@@ -18,13 +18,8 @@ if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
   sudo rm $ROOTFS/usr/lib/systemd/system/deepin-installer.service
   sudo ln -sf /usr/lib/systemd/system/lightdm.service $ROOTFS/etc/systemd/system/display-manager.service
 
-  # v23
   if [ -d $ROOTFS/usr/share/deepin-installer ]; then
-    sudo sed -i '/setup_kwin_blur$/d; /start_kwin ||/d' $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
-  fi
-
-  # v25
-  if [ -d $ROOTFS/var/lib/deepin-installer ]; then
+    sudo sed -i '/setup_kwin_blur$/d' $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
     # kwin env
     sudo sed -i "/setup_kwin_env().*{/a export KWIN_COMPOSE=O2ES" $ROOTFS/var/lib/deepin-installer/tools/functions/xrandr.sh
   fi
