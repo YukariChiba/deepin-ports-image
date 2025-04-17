@@ -21,6 +21,6 @@ if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
   if [ -d $ROOTFS/usr/share/deepin-installer ]; then
     sudo sed -i '/setup_kwin_blur$/d' $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
     # kwin env
-    sudo sed -i "/setup_kwin_env().*{/a export KWIN_COMPOSE=O2ES" $ROOTFS/var/lib/deepin-installer/tools/functions/xrandr.sh
+    sudo sed -i "/setup_kwin_env().*{/a export KWIN_COMPOSE=O2ES" $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
   fi
 fi
