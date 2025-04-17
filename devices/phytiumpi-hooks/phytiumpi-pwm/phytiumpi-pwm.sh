@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PWNDEV=/sys/class/pwm/pwmchip0
+PWMDEV=/sys/class/pwm/pwmchip0
 
 echo 1 > $PWMDEV/export
 PWMNODE=$PWMDEV/pwm1
