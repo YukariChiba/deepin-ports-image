@@ -1,1 +1,1 @@
-deb [ trusted=yes ] https://ci.deepin.com/repo/deepin/deepin-ports/v23-addons/ beige ports-board-starfive-jh7110
+deb [ trusted=yes ] https://ci.deepin.com/repo/deepin/deepin-ports/repo/ ports ports-board-starfive-jh7110

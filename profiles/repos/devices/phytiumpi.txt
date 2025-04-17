@@ -1,0 +1,1 @@
+deb [ trusted=yes ] https://ci.deepin.com/repo/deepin/deepin-ports/repo/ ports ports-board-phytium-pi
