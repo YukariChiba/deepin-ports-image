@@ -6,6 +6,6 @@ PKGPROFILE=desktop-installer
 REPOPROFILE=25
 COMPONENTS=crimson
 IMGPROFILE=phytiumpi
-EXTRAPKGS=linux-image-6.6.63-e2000-phytium-66y-g4850d0096546,uos-ai,deepin-ports-profile-phytiumpi
+EXTRAPKGS=linux-headers-6.6.63-e2000-phytium-66y,linux-image-6.6.63-e2000-phytium-66y,uos-ai,deepin-ports-profile-phytiumpi
 # MBR
 NOREPARTROOT=1
