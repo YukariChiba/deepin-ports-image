@@ -11,8 +11,11 @@ fi
 
 ### Setup binfmt
 
-sudo systemctl restart systemd-binfmt
-sleep 1
+if [ -z /proc/sys/fs/binfmt_misc/qemu-$TARGET_ARCH ]; then
+  echo warning: qemu-user-$TARGET_ARCH not available, trying to restart systemd-binfmt...
+  sudo systemctl restart systemd-binfmt
+  sleep 1
+fi
 
 ### Read and set config
 
