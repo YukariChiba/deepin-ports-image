@@ -14,6 +14,12 @@ if [ -d "./injectbin/kernelbin/$TARGET_DEVICE" ]; then
   fi
 fi
 
+if [ -d "./injectbin/firmware/$TARGET_DEVICE" ]; then
+  echo_bold "--- extra firmware detected"
+  sudo mkdir -p $ROOTFS/lib/firmware
+  sudo cp -r ./injectbin/firmware/$TARGET_DEVICE/* $ROOTFS/lib/firmware/
+fi
+
 if [ -n "$(ls -A $ROOTFS/lib/modules/ 2>/dev/null)" ]
 then
   for d in $ROOTFS/lib/modules/* ; do
