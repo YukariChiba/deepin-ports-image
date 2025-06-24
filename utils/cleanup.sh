@@ -1,6 +1,9 @@
 #!/bin/bash
 
 if [ "$BOOTSIZE" -ne "0" ]; then
+  if [ "$EFISIZE" -ne "0" ]; then
+    sudo umount $ROOTFS/boot/efi
+  fi
   sudo umount $ROOTFS/boot
 fi
 
@@ -12,6 +15,10 @@ fi
 
 if [ "$BOOTFMT" == "fat32" ] && [ "$BOOTSIZE" -ne "0" ]; then
   fatlabel $BOOTIMG $BOOTLABEL
+fi
+
+if [ "$EFISIZE" -ne "0" ]; then
+  fatlabel $EFIIMG $EFILABEL
 fi
 
 if [ "$FSFMT" == "ext4" ]; then

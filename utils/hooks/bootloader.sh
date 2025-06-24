@@ -50,4 +50,13 @@ if [ "$BOOTLOADER" == "extlinux" ]; then
   fi
 fi
 
+if [ "$BOOTLOADER" == "grub" ]; then
+  echo_bold "--- Use grub bootloader"
+  if [ -f $ROOTFS/sbin/grub-install ]; then
+    sudo systemd-nspawn -D $ROOTFS bash -c "grub-install --efi-directory=/boot/efi --removable"
+    echo "GRUB_DISABLE_OS_PROBER=false" > $ROOTFS/etc/default/grub
+    sudo systemd-nspawn -D $ROOTFS bash -c "mkdir -p /boot/grub && grub-mkconfig -o /boot/grub/grub.cfg"
+  fi
+fi
+
 sudo systemd-nspawn -D $ROOTFS bash -c "apt list --installed linux-image-* | grep '/' | cut -d'/' -f1 | xargs -I @ dpkg-reconfigure @"

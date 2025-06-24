@@ -5,11 +5,13 @@ mkdir -p tmp results
 FSFMT=ext4
 BOOTFMT=ext4
 BOOTSIZE=0
+EFISIZE=0
 COMPONENTS=main,community,commercial
 PKGPROFILE=desktop
 REPOPROFILE=main
 ROOTLABEL=root
 BOOTLABEL=boot
+EFILABEL=efi
 TAILSPACE=256M
 
 function echo_bold()
