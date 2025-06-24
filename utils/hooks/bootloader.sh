@@ -49,3 +49,5 @@ if [ "$BOOTLOADER" == "extlinux" ]; then
     sudo systemd-nspawn -D $ROOTFS bash -c "u-boot-update || true"
   fi
 fi
+
+sudo systemd-nspawn -D $ROOTFS bash -c "apt list --installed linux-image-* | grep '/' | cut -d'/' -f1 | xargs -I @ dpkg-reconfigure @"
