@@ -12,6 +12,11 @@ if [ "$BOOTSIZE" -ne "0" ]; then
   cat <<EOF | sudo tee -a $ROOTFS/etc/fstab
 LABEL=boot /boot auto defaults 0 0
 EOF
+  if [ "$EFISIZE" -ne "0" ]; then
+    cat <<EOF | sudo tee -a $ROOTFS/etc/fstab
+LABEL=efi /boot/efi vfat defaults 0 0
+EOF
+  fi
 fi
 
 cat <<EOF | sudo tee -a $ROOTFS/etc/fstab

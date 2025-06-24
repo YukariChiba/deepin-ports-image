@@ -53,9 +53,15 @@ fi
 if [ "$BOOTLOADER" == "grub" ]; then
   echo_bold "--- Use grub bootloader"
   if [ -f $ROOTFS/sbin/grub-install ]; then
-    sudo systemd-nspawn -D $ROOTFS bash -c "grub-install --efi-directory=/boot/efi --removable"
-    echo "GRUB_DISABLE_OS_PROBER=false" > $ROOTFS/etc/default/grub
-    sudo systemd-nspawn -D $ROOTFS bash -c "mkdir -p /boot/grub && grub-mkconfig -o /boot/grub/grub.cfg"
+     _NSPAWN_ARGS=" --bind=$(losetup -j $(realpath $DISKIMG) -O NAME -n)"
+    if [ "$BOOTSIZE" -ne "0" ]; then
+      _NSPAWN_ARGS+=" --bind=$(losetup -j $(realpath $BOOTIMG) -O NAME -n)"
+      if [ "$EFISIZE" -ne "0" ]; then
+        _NSPAWN_ARGS+=" --bind=$(losetup -j $(realpath $EFIIMG) -O NAME -n)"
+      fi
+    fi
+    sudo systemd-nspawn -D $ROOTFS $_NSPAWN_ARGS bash -c "grub-install --efi-directory=/boot/efi --removable"
+    echo "GRUB_DISABLE_OS_PROBER=false" | sudo tee -a $ROOTFS/etc/default/grub
   fi
 fi
 
