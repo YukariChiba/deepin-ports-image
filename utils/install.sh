@@ -54,4 +54,4 @@ sudo mmdebstrap \
 	$ROOTFS \
 	"${INCREPOS_INSTALL[@]}"
 
-sudo systemd-nspawn -D $ROOTFS bash -c "export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get -y install ${INCPKGS//,/ }"
+sudo systemd-nspawn -D $ROOTFS bash -c "export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get -y install ${INCPKGS//,/ } && apt clean"
