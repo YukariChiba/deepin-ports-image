@@ -1,11 +1,8 @@
 BOOTFMT=fat32
 TARGET_DEVICE=pinetabv
 TARGET_ARCH=riscv64
-DISKSIZE=13000
 BOOTSIZE=256
 PKGPROFILE=desktop-installer
-REPOPROFILE=23
 BOOTLOADER=extlinux
 EXTRAPKGS=linux-image-5.15.131-pinetab-v,deepin-ports-profile-jh7110
-COMPONENTS=beige
 IMGPROFILE=generic

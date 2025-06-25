@@ -3,7 +3,5 @@ TARGET_ARCH=riscv64
 DISKSIZE=3500
 BOOTSIZE=0
 PKGPROFILE=minimal
-REPOPROFILE=23
 EXTRAPKGS=linux-image-6.1.80-mango,deepin-ports-profile-sg2042
 BOOTLOADER=extlinux
-COMPONENTS=beige

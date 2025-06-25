@@ -1,10 +1,7 @@
 TARGET_DEVICE=phytiumpi
 TARGET_ARCH=arm64
-DISKSIZE=13000
 BOOTSIZE=0
 PKGPROFILE=desktop-installer
-REPOPROFILE=25
-COMPONENTS=crimson
 IMGPROFILE=phytiumpi
 EXTRAPKGS=linux-headers-6.6.63-e2000-phytium-66y,linux-image-6.6.63-e2000-phytium-66y,uos-ai,deepin-ports-profile-phytiumpi
 # MBR

@@ -4,11 +4,8 @@
 BOOTFMT=fat32
 TARGET_DEVICE=jh7110
 TARGET_ARCH=riscv64
-DISKSIZE=14000
 BOOTSIZE=256
 PKGPROFILE=desktop-installer
-REPOPROFILE=25
 BOOTLOADER=extlinux
 EXTRAPKGS=linux-image-6.6.20-jh7110-starfive-66y,deepin-ports-profile-jh7110
-COMPONENTS=crimson
 IMGPROFILE=generic

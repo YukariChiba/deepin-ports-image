@@ -1,8 +1,5 @@
 TARGET_DEVICE=k1
 TARGET_ARCH=riscv64
-DISKSIZE=13000
 BOOTSIZE=256
 PKGPROFILE=desktop-installer
-REPOPROFILE=25
 EXTRAPKGS=linux-image-6.6.63,deepin-ports-profile-k1
-COMPONENTS=crimson

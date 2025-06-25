@@ -1,11 +1,8 @@
 TARGET_DEVICE=eic7700
 TARGET_ARCH=riscv64
-DISKSIZE=13000
 BOOTSIZE=400
 PKGPROFILE=desktop-installer
-REPOPROFILE=25
 BOOTLOADER=extlinux
 EXTRAPKGS=linux-image-6.6.87-eic770x-rockos-66y-gbb0c69aeae19,deepin-ports-profile-eic7700
-COMPONENTS=crimson
 # strange partition types
 NOREPARTROOT=1
