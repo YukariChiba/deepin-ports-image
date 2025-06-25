@@ -23,4 +23,11 @@ if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
     # kwin env
     sudo sed -i "/setup_kwin_env().*{/a export KWIN_COMPOSE=O2ES" $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
   fi
+else
+  echo_bold "--- no deepin-installer found, write apt/sources.list"
+  echo "" | sudo tee $ROOTFS/etc/apt/sources.list > /dev/null
+  for INCREPO in "${INCREPOS[@]}"
+  do
+    echo "$INCREPO" | sudo tee -a $ROOTFS/etc/apt/sources.list > /dev/null
+  done
 fi

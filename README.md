@@ -8,6 +8,7 @@ Non-free `injectbin` submodule is needed for some boards
 
 ```
 COMPRESS=1 # set if compressed tar.xz file is needed
+INTERNAL_REPO=1 # set if use internal repo
 ./build.sh {device}
 ```
 
