@@ -20,13 +20,6 @@ x11-utils
 dde-introduction
 dde-account-faces
 lightdm-gtk-greeter
-deepin-music
-dde-calendar
-deepin-album
-deepin-calculator
-deepin-draw
-deepin-editor
-deepin-movie
 deepin-compressor
 deepin-screen-recorder
 com.deepin.gomoku
