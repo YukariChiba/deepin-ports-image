@@ -62,6 +62,9 @@ popd
 
 ### Compress files
 
+echo "wait 10s for releasing image file"
+sleep 10
+
 if [ ! -z $COMPRESS ]; then
   export XZ_OPT='-T0'
   pushd results-img

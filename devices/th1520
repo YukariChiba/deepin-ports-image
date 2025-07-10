@@ -2,5 +2,5 @@ TARGET_DEVICE=th1520
 TARGET_ARCH=riscv64
 BOOTSIZE=256
 PKGPROFILE=desktop-installer
-EXTRAPKGS=linux-image-5.10.113-th1520-revyos-510,deepin-ports-profile-th1520
+EXTRAPKGS=linux-image-6.6.92-th1520-revyos-66y,th1520-mainline-opensbi,deepin-ports-profile-th1520
 BOOTLOADER=extlinux
