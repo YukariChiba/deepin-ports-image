@@ -3,6 +3,6 @@ TARGET_ARCH=riscv64
 BOOTSIZE=400
 PKGPROFILE=desktop-installer
 BOOTLOADER=extlinux
-EXTRAPKGS=linux-image-6.6.87-eic770x-rockos-66y-gbb0c69aeae19,deepin-ports-profile-eic7700
+EXTRAPKGS=linux-image-6.6.88-eic770x-rockos-66y,deepin-ports-profile-eic7700
 # strange partition types
 NOREPARTROOT=1
