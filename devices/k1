@@ -2,4 +2,4 @@ TARGET_DEVICE=k1
 TARGET_ARCH=riscv64
 BOOTSIZE=256
 PKGPROFILE=desktop-installer
-EXTRAPKGS=linux-image-6.6.63,deepin-ports-profile-k1
+EXTRAPKGS=linux-image-6.6.63-k1-spacemit-66y,deepin-ports-profile-k1
