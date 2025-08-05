@@ -1,4 +1,4 @@
 deb http://10.20.64.70/deepin-community/stable/ crimson main community commercial
 deb http://10.20.64.70/deepin-community/testing/ unstable/crimson main community commercial
-deb [ trusted=yes ] http://10.20.64.70/deepin-community/hwe/ unstable main community dde commercial
+deb [ trusted=yes ] http://10.20.64.70/deepin-community/25-hwe/ unstable main community dde commercial
 deb [ trusted=yes ] http://10.20.64.70/deepin-ports/repo/ ports ports-apps ports-kernel ports-imggpu ports-tmpfix ports-profiles
