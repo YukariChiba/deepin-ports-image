@@ -3,5 +3,5 @@ TARGET_DEVICE=sg2042
 TARGET_ARCH=riscv64
 BOOTSIZE=0
 PKGPROFILE=desktop-installer
-EXTRAPKGS=linux-image-6.14.6-sg2042-upstream-614y-g6fcd0fcde785,deepin-ports-profile-sg2042
+EXTRAPKGS=linux-image-6.16-sg2042-upstream-616y,deepin-ports-profile-sg2042
 BOOTLOADER=extlinux
