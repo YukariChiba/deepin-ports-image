@@ -45,7 +45,7 @@ fi
 
 sudo mmdebstrap \
 	--hook-dir=/usr/share/mmdebstrap/hooks/merged-usr \
-	--include=ca-certificates,deepin-keyring,perl-openssl-defaults \
+	--include=ca-certificates,deepin-keyring,perl-openssl-defaults,deepin-ports-keyring \
 	--skip=check/empty \
 	--aptopt='APT::Get::AllowUnauthenticated "true"' \
 	--aptopt='Acquire::AllowInsecureRepositories "true"' \

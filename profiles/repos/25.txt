@@ -1,4 +1,4 @@
 deb https://community-packages.deepin.com/deepin/beige/ crimson main community commercial
 deb https://proposed-packages.deepin.com/beige-testing/ unstable/crimson main community commercial
 deb https://community-packages.deepin.com/hwe-25/ unstable main community commercial
-deb [ trusted=yes ] https://ci.deepin.com/repo/deepin/deepin-ports/repo/ ports ports-apps ports-kernel ports-imggpu ports-tmpfix ports-profiles
+deb https://ci.deepin.com/repo/deepin/deepin-ports/repo/ ports ports-apps ports-kernel ports-imggpu ports-tmpfix ports-profiles
