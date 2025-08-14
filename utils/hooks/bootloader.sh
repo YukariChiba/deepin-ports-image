@@ -43,7 +43,8 @@ if [ "$BOOTLOADER" == "extlinux" ]; then
   if [ -f $ROOTFS/sbin/u-boot-update ]; then
     echo "--- u-boot-menu installed, update config"
     if [ -f "./bootconfig/uboot/$TARGET_DEVICE" ]; then
-      sudo cp ./bootconfig/uboot/$TARGET_DEVICE $ROOTFS/etc/default/u-boot
+      sudo mkdir -p $ROOTFS/usr/share/u-boot-menu/conf.d
+      sudo cp ./bootconfig/uboot/$TARGET_DEVICE $ROOTFS/usr/share/u-boot-menu/conf.d/99-custom.conf
     fi
     sudo mkdir -p $ROOTFS/boot/extlinux
     sudo systemd-nspawn -D $ROOTFS bash -c "u-boot-update || true"
