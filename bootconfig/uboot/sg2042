@@ -1,2 +1,0 @@
-U_BOOT_PARAMETERS="rw earlycon quiet splash plymouth.ignore-serial-consoles hide_v0p7_ext console=tty0,115200 nvme_core.io_timeout=240 pcie_ports=compat"
-U_BOOT_ROOT="root=/dev/nvme0n1p1"

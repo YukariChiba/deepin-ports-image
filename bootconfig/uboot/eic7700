@@ -1,4 +1,0 @@
-U_BOOT_PARAMETERS="console=ttyS0,115200 plymouth.ignore-serial-consoles splash quiet earlycon=sbi rw"
-U_BOOT_ROOT="root=LABEL=root"
-U_BOOT_FDT_DIR="/dtbs/linux-image-"
-U_BOOT_SYNC_DTBS="true"
