@@ -59,9 +59,11 @@ if [ "$BOOTLOADER" == "grub" ]; then
       _NSPAWN_ARGS+=" --bind=$(losetup -j $(realpath $BOOTIMG) -O NAME -n)"
       if [ "$EFISIZE" -ne "0" ]; then
         _NSPAWN_ARGS+=" --bind=$(losetup -j $(realpath $EFIIMG) -O NAME -n)"
+	sudo systemd-nspawn -D $ROOTFS $_NSPAWN_ARGS bash -c "grub-install --efi-directory=/boot/efi --removable"
+      else
+        sudo systemd-nspawn -D $ROOTFS $_NSPAWN_ARGS bash -c "grub-install --efi-directory=/boot --removable"
       fi
     fi
-    sudo systemd-nspawn -D $ROOTFS $_NSPAWN_ARGS bash -c "grub-install --efi-directory=/boot/efi --removable"
     echo "GRUB_DISABLE_OS_PROBER=false" | sudo tee -a $ROOTFS/etc/default/grub
   fi
 fi
