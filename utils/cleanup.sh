@@ -1,9 +1,10 @@
 #!/bin/bash
 
+if [ "$EFISIZE" -ne "0" ]; then
+  sudo umount $ROOTFS/boot/efi
+fi
+
 if [ "$BOOTSIZE" -ne "0" ]; then
-  if [ "$EFISIZE" -ne "0" ]; then
-    sudo umount $ROOTFS/boot/efi
-  fi
   sudo umount $ROOTFS/boot
 fi
 

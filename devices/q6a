@@ -2,6 +2,6 @@
 TARGET_DEVICE=q6a
 TARGET_ARCH=arm64
 PKGPROFILE=desktop-installer
-BOOTSIZE=800
+EFISIZE=128
 EXTRAPKGS=linux-image-6.15.7-q6a-radxa-615y,initramfs-tools,grub-efi
 BOOTLOADER=grub
