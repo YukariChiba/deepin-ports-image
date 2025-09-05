@@ -65,7 +65,10 @@ if [ "$BOOTLOADER" == "grub" ]; then
     if [ "$BOOTSIZE" -ne "0" ] || [ "$EFISIZE" -ne "0" ]; then
       sudo systemd-nspawn -D $ROOTFS $_NSPAWN_ARGS bash -c "grub-install --efi-directory=/boot/efi --removable"
     fi
-    echo "GRUB_DISABLE_OS_PROBER=false" | sudo tee -a $ROOTFS/etc/default/grub
+    if [ -f "./bootconfig/grub/$TARGET_DEVICE" ]; then
+      sudo mkdir -p $ROOTFS/boot/grub
+      sudo cp ./bootconfig/grub/$TARGET_DEVICE $ROOTFS/boot/grub/grub.cfg
+    fi
   fi
 fi
 
