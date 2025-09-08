@@ -20,5 +20,5 @@ EOF
 LANG=zh_CN.UTF-8
 LANGUAGE=zh_CN
 EOF
-  sudo systemd-nspawn -D $ROOTFS bash -c "locale-gen"
+  sudo systemd-nspawn -D $ROOTFS bash -c "command -v locale-gen >/dev/null 2>&1 && locale-gen || true"
 fi
