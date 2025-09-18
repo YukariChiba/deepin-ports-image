@@ -14,7 +14,7 @@ if [ -z $ROOTFS ]; then
 fi
 
 dd if=/dev/zero of=./$DISKIMG iflag=fullblock bs=1M count=$DISKSIZE
-sudo mkfs.$FSFMT ./$DISKIMG
+mkfs_helper $FSFMT ./$DISKIMG
 
 sudo mount ./$DISKIMG $ROOTFS
 
@@ -23,11 +23,7 @@ if [ "$BOOTSIZE" -ne "0" ]; then
                 rm -f ./$BOOTIMG
         fi
         dd if=/dev/zero of=./$BOOTIMG iflag=fullblock bs=1M count=$BOOTSIZE
-        if [ "$BOOTFMT" == "fat32" ]; then
-                sudo mkfs.fat -F32 ./$BOOTIMG
-        else
-                sudo mkfs.$BOOTFMT ./$BOOTIMG
-        fi
+        mkfs_helper $BOOTFMT ./$BOOTIMG
         sudo mkdir -p $ROOTFS/boot
         sudo mount ./$BOOTIMG $ROOTFS/boot
 fi
@@ -36,7 +32,7 @@ if [ "$EFISIZE" -ne "0" ]; then
 		rm -f ./$EFIIMG
 	fi
 	dd if=/dev/zero of=./$EFIIMG iflag=fullblock bs=1M count=$EFISIZE
-	mkfs.fat -F32 ./$EFIIMG
+	mkfs_helper fat32 ./$EFIIMG
 	sudo mkdir -p $ROOTFS/boot/efi
 	sudo mount ./$EFIIMG $ROOTFS/boot/efi
 fi
