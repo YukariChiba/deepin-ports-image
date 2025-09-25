@@ -31,6 +31,9 @@ function mkfs_helper()
     "ext4")
       _TMP_CMD="mkfs.ext4 -b 4096"
       ;;
+    "fat")
+      _TMP_CMD="mkfs.fat -S 4096"
+      ;;
     "fat32")
       _TMP_CMD="mkfs.fat -F 32 -S 4096"
       ;;

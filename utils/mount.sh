@@ -32,7 +32,7 @@ if [ "$EFISIZE" -ne "0" ]; then
 		rm -f ./$EFIIMG
 	fi
 	dd if=/dev/zero of=./$EFIIMG iflag=fullblock bs=1M count=$EFISIZE
-	mkfs_helper fat32 ./$EFIIMG
+	mkfs_helper fat ./$EFIIMG
 	sudo mkdir -p $ROOTFS/boot/efi
 	sudo mount ./$EFIIMG $ROOTFS/boot/efi
 fi
