@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -d /etc/initramfs-tools/conf.d/ ] && [ ! -z "$RESUME" ]; then
+  echo "RESUME=$RESUME" | sudo tee $ROOTFS/etc/initramfs-tools/conf.d/resume
+fi
+
 if [ -d "./injectbin/kernelbin/$TARGET_DEVICE" ]; then
   echo_bold "--- Found binary kernel/module/bootloader files"
   if [ -d "./injectbin/kernelbin/$TARGET_DEVICE/modules" ]; then
