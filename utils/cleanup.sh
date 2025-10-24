@@ -1,5 +1,16 @@
 #!/bin/bash
 
+if [ ! -z $IMGEXTRA ]; then
+  if [ -d "$ROOTFS/$IMGEXTRA" ]; then
+    _TMP=$(mktemp -d)
+    cp -r $ROOTFS/$IMGEXTRA/* $_TMP
+    IMGEXTRA=$_TMP
+    unset _TMP
+  else
+    unset IMGEXTRA
+  fi
+fi
+
 if [ "$EFISIZE" -ne "0" ]; then
   sudo umount $ROOTFS/boot/efi
 fi
