@@ -5,4 +5,4 @@ BOOTSIZE=256
 PKGPROFILE=desktop-installer
 BOOTLOADER=extlinux
 EXTRAPKGS=linux-image-5.15.0-jh7110-dcroma-515,deepin-ports-profile-jh7110
-IMGPROFILE=generic
+IMGPROFILE=riscv

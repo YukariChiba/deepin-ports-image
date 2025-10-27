@@ -1,9 +1,0 @@
-# TODO: needs to run grub-mkconfig manually
-TARGET_DEVICE=dp1000
-TARGET_ARCH=riscv64
-BOOTSIZE=800
-EFISIZE=60
-PKGPROFILE=desktop-installer
-EXTRAPKGS=linux-image-6.6.93-riscv64-desktop-hwe,initramfs-tools,grub-efi
-BOOTLOADER=grub
-IMGPROFILE=generic-efi

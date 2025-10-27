@@ -8,4 +8,4 @@ BOOTSIZE=256
 PKGPROFILE=desktop-installer
 BOOTLOADER=extlinux
 EXTRAPKGS=linux-image-6.6.20-jh7110-starfive-66y,deepin-ports-profile-jh7110
-IMGPROFILE=generic
+IMGPROFILE=riscv

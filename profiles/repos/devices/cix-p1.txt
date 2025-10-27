@@ -1,0 +1,1 @@
+deb https://ci.deepin.com/repo/deepin/deepin-ports/repo/ ports ports-board-cix-p1

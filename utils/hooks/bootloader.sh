@@ -69,10 +69,28 @@ if [ "$BOOTLOADER" == "grub" ]; then
     if [ "$BOOTSIZE" -ne "0" ] || [ "$EFISIZE" -ne "0" ]; then
       sudo systemd-nspawn -D $ROOTFS $_NSPAWN_ARGS bash -c "grub-install --efi-directory=/boot/efi --removable"
     fi
-    if [ -f "./bootconfig/grub/$TARGET_DEVICE" ]; then
-      sudo mkdir -p $ROOTFS/boot/grub
-      sudo cp ./bootconfig/grub/$TARGET_DEVICE $ROOTFS/boot/grub/grub.cfg
-    fi
+    sudo mkdir -p $ROOTFS/boot/grub
+    cat << EOF | sudo tee $ROOTFS/boot/grub/grub.cfg
+insmod part_gpt
+insmod part_msdos
+insmod all_video
+terminal_input console
+terminal_output console
+if serial --unit=0 --speed=115200; then
+	terminal_input --append console
+	terminal_output --append console
+fi
+set timeout_style=menu
+set timeout=3
+set default=0
+menuentry 'deepin Linux ($TARGET_DEVICE)' {
+	echo 'Loading Kernel...'
+	linux /boot/$(find $ROOTFS/boot/ -name "vmlinuz-*" -printf '%f\n' | head -n 1) rw root=LABEL=root $GRUBKARGS
+	echo 'Loading Initramfs...'
+	initrd /boot/$(find $ROOTFS/boot/ -name "initrd.img-*" -printf '%f\n' | head -n 1)
+	echo 'Booting...'
+}
+EOF
   fi
 fi
 

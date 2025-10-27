@@ -20,6 +20,7 @@ location: `devices/{device}`
 - `COMPONENTS`: component in repo, usually beige
 - `EXTRAPKGS`: extra packages to install, seperated by ','
 - `IMGPROFILE`: full image profile, unset to disable image generation
+- `GRUBKARGS`: extra kernel args for grub
 - `RESUME`: none by default, set RESUME= in initramfs
 
 ## device hooks
