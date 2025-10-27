@@ -2,6 +2,6 @@ TARGET_DEVICE=cix-p1
 TARGET_ARCH=arm64
 PKGPROFILE=desktop-installer
 EFISIZE=48
-EXTRAPKGS=deepin-ports-profile-cix-p1,linux-image-6.6.89-p1-radxa-66y
+EXTRAPKGS=deepin-ports-profile-cix-p1,linux-image-6.6.10-cix-build-generic
 GRUBKARGS="console=ttyAMA2,115200 earlycon=pl011,0x040d0000 efi=noruntime"
 BOOTLOADER=grub
