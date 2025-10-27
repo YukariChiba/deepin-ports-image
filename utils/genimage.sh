@@ -10,7 +10,6 @@ if [ ! -z $IMGPROFILE ]; then
     sed -i "s@%boot%@$BOOTIMG@" $GENIMGCFG
     sed -i "s@%root%@$DISKIMG@" $GENIMGCFG
     sed -i "s@%efi%@$EFIIMG@" $GENIMGCFG
-    sed -i "s@%extra%@$IMGEXTRA@" $GENIMGCFG
     genimage --config $GENIMGCFG \
       --inputpath . \
       --tmppath $GENIMGTMP \

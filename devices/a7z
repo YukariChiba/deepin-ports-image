@@ -1,8 +1,0 @@
-TARGET_DEVICE=a7z
-TARGET_ARCH=arm64
-PKGPROFILE=desktop-installer
-BOOTSIZE=256
-BOOTLOADER=extlinux
-IMGPROFILE=a733
-IMGEXTRA=usr/lib/u-boot/radxa-cubie-a7z
-EXTRAPKGS=linux-image-5.15.147-a733-radxa-515y,linux-headers-5.15.147-a733-radxa-515y,initramfs-tools,u-boot-menu,u-boot-radxa-cubie-a7z
