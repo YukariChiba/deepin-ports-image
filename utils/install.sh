@@ -11,10 +11,8 @@ if [ ! -f "./profiles/packages/$PKGPROFILE.txt" ]; then
 fi
 
 readarray -t INCREPOS < ./profiles/repos/$REPOPROFILE.txt
-if [ -f "./profiles/repos/devices/$TARGET_DEVICE.txt" ]; then
-  readarray -t INCREPOS_DEV < ./profiles/repos/devices/$TARGET_DEVICE.txt
-  INCREPOS=("${INCREPOS[@]}" "${INCREPOS_DEV[@]}")
-fi
+readarray -t INCREPOS_DEV < $(. ./profiles/repos/device.sh)
+INCREPOS=("${INCREPOS[@]}" "${INCREPOS_DEV[@]}")
 
 if [ ! -z $INTERNAL_REPO ]; then
   if [ -f "./profiles/repos-internal/$REPOPROFILE.txt" ]; then
@@ -22,12 +20,8 @@ if [ ! -z $INTERNAL_REPO ]; then
   else
     readarray -t INCREPOS_INTERNAL < ./profiles/repos/$REPOPROFILE.txt
   fi
-  if [ -f "./profiles/repos-internal/devices/$TARGET_DEVICE.txt" ]; then
-    readarray -t INCREPOS_INTERNAL_DEV < ./profiles/repos-internal/devices/$TARGET_DEVICE.txt
-    INCREPOS_INTERNAL=("${INCREPOS_INTERNAL[@]}" "${INCREPOS_INTERNAL_DEV[@]}")
-  else
-    INCREPOS_INTERNAL=("${INCREPOS_INTERNAL[@]}" "${INCREPOS_DEV[@]}")
-  fi
+  readarray -t INCREPOS_INTERNAL_DEV < $(. ./profiles/repos-internal/device.sh)
+  INCREPOS_INTERNAL=("${INCREPOS_INTERNAL[@]}" "${INCREPOS_INTERNAL_DEV[@]}")
   INCREPOS_INSTALL=("${INCREPOS_INTERNAL[@]}")
 else
   INCREPOS_INSTALL=("${INCREPOS[@]}")

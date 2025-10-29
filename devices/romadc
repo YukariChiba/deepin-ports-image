@@ -1,5 +1,6 @@
 BOOTFMT=fat32
 TARGET_DEVICE=romadc
+DEVICEREPO=ports-board-starfive-jh7110
 TARGET_ARCH=riscv64
 BOOTSIZE=256
 PKGPROFILE=desktop-installer

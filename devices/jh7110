@@ -2,7 +2,7 @@
 # mode : binlayout extlinux
 
 BOOTFMT=fat32
-TARGET_DEVICE=jh7110
+TARGET_DEVICE=ports-board-starfive-jh7110
 TARGET_ARCH=riscv64
 BOOTSIZE=256
 PKGPROFILE=desktop-installer

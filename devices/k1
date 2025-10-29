@@ -1,4 +1,5 @@
 TARGET_DEVICE=k1
+DEVICEREPO=ports-board-spacemit-k1
 TARGET_ARCH=riscv64
 BOOTSIZE=256
 PKGPROFILE=desktop-installer

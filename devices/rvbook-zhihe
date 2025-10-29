@@ -1,4 +1,5 @@
 TARGET_DEVICE=rvbook-zhihe
+DEVICEREPO=ports-board-thead-th1520
 TARGET_ARCH=riscv64
 BOOTSIZE=256
 PKGPROFILE=desktop-installer

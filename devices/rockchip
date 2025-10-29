@@ -1,0 +1,6 @@
+TARGET_DEVICE=rockchip
+TARGET_ARCH=arm64
+BOOTSIZE=512
+PKGPROFILE=desktop-installer
+EXTRAPKGS=linux-image-6.1.115-rockchip-radxa-61y,linux-headers-6.1.115-rockchip-radxa-61y,initramfs-tools,u-boot-menu
+BOOTLOADER=extlinux

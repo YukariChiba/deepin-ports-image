@@ -1,5 +1,6 @@
 # TODO: needs to run grub-mkconfig manually
 TARGET_DEVICE=q6a
+DEVICEREPO=ports-board-radxa-q6a
 TARGET_ARCH=arm64
 PKGPROFILE=desktop-installer
 EFISIZE=48

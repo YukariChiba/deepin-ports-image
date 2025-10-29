@@ -1,1 +1,0 @@
-deb https://ci.deepin.com/repo/deepin/deepin-ports/repo/ ports ports-board-radxa-q6a

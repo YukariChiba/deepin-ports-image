@@ -1,4 +1,5 @@
 TARGET_DEVICE=eic7700
+DEVICEREPO=ports-board-eswin-eic770x
 TARGET_ARCH=riscv64
 BOOTSIZE=400
 PKGPROFILE=desktop-installer

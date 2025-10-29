@@ -1,4 +1,5 @@
 TARGET_DEVICE=cix-p1
+DEVICEREPO=ports-board-cix-p1
 TARGET_ARCH=arm64
 PKGPROFILE=desktop-installer
 EFISIZE=48

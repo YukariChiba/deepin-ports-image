@@ -1,4 +1,5 @@
 TARGET_DEVICE=phytiumpi
+DEVICEREPO=ports-board-phytium-pi
 TARGET_ARCH=arm64
 BOOTSIZE=0
 PKGPROFILE=desktop-installer

@@ -1,1 +1,0 @@
-deb https://ci.deepin.com/repo/deepin/deepin-ports/repo/ ports ports-board-eswin-eic770x

@@ -18,6 +18,7 @@ location: `devices/{device}`
 - `REPOPROFILE`: repo list profile
 - `BOOTLOADER`: bootloader type, currently extlinux only, unset to disable bootloader
 - `COMPONENTS`: component in repo, usually beige
+- `DEVICEREPO`: device-specific repo component
 - `EXTRAPKGS`: extra packages to install, seperated by ','
 - `IMGPROFILE`: full image profile, unset to disable image generation
 - `GRUBKARGS`: extra kernel args for grub
