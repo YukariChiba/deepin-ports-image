@@ -27,7 +27,7 @@ else
   INCREPOS_INSTALL=("${INCREPOS[@]}")
 fi
 
-INCPKGS+="`cat ./profiles/packages/$PKGPROFILE.txt | grep -v "^-" | xargs | sed -e 's/ /,/g'`"
+INCPKGS+="`cat ./profiles/packages/$PKGPROFILE.txt | grep -v "^-" | grep -v "^#" | xargs | sed -e 's/ /,/g'`"
 
 if [ ! -z $EXTRAPKGS ]; then
   INCPKGS+=",$EXTRAPKGS"
@@ -44,4 +44,24 @@ sudo mmdebstrap \
 	$ROOTFS \
 	"${INCREPOS_INSTALL[@]}"
 
-sudo systemd-nspawn -D $ROOTFS bash -c "export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get -y install ${INCPKGS//,/ } && apt clean"
+sudo systemd-nspawn -D $ROOTFS bash -c "export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get -y install ${INCPKGS//,/ }"
+
+if [ -f $ROOTFS/usr/bin/ll-cli ]; then
+
+cat $ROOTFS/etc/packages.linglong.* | grep -v '#' | sudo tee $ROOTFS/etc/packages.linglong
+
+while IFS="" read -r p || [ -n "$p" ]
+do
+  if grep -q "^$p:" $ROOTFS/etc/packages.linglong; then
+    _item=$(grep "^$p:" $ROOTFS/etc/packages.linglong)
+    _orig=$(echo $_item | cut -f1 -d ':')
+    _conv=$(echo $_item | cut -f2 -d ':')
+    sudo systemd-nspawn -D $ROOTFS bash -c "apt-get install -y $_conv"
+  else
+    echo "warning: linglong package $p not installed"
+  fi
+done < $ROOTFS/etc/packages.linglong
+
+fi
+
+sudo systemd-nspawn -D $ROOTFS bash -c "apt clean"
