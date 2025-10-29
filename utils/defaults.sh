@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p tmp results
+mkdir -p tmp results cache
 
 FSFMT=ext4
 BOOTFMT=ext4

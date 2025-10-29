@@ -11,8 +11,6 @@ if [ ! -f "./profiles/packages/$PKGPROFILE.txt" ]; then
 fi
 
 readarray -t INCREPOS < ./profiles/repos/$REPOPROFILE.txt
-. ./profiles/device_repo.sh
-INCREPOS=("${INCREPOS[@]}" "$INCREPOS_DEV")
 
 if [ ! -z $INTERNAL_REPO ]; then
   if [ -f "./profiles/repos-internal/$REPOPROFILE.txt" ]; then
@@ -20,7 +18,6 @@ if [ ! -z $INTERNAL_REPO ]; then
   else
     readarray -t INCREPOS_INTERNAL < ./profiles/repos/$REPOPROFILE.txt
   fi
-  INCREPOS_INTERNAL=("${INCREPOS_INTERNAL[@]}" "$INCREPOS_INTERNAL_DEV")
   INCREPOS_INSTALL=("${INCREPOS_INTERNAL[@]}")
 else
   INCREPOS_INSTALL=("${INCREPOS[@]}")
@@ -28,9 +25,13 @@ fi
 
 INCPKGS+="`cat ./profiles/packages/$PKGPROFILE.txt | grep -v "^-" | grep -v "^#" | xargs | sed -e 's/ /,/g'`"
 
-if [ ! -z $EXTRAPKGS ]; then
-  INCPKGS+=",$EXTRAPKGS"
-fi
+BASE_CACHE="$(pwd)/cache/base-$REPOPROFILE-$PKGPROFILE-$TARGET_ARCH.tar.gz"
+
+if [ -f $BASE_CACHE ]; then
+
+sudo tar xzf "./cache/base-$REPOPROFILE-$PKGPROFILE.tar.gz" -C $ROOTFS
+
+else
 
 sudo mmdebstrap \
 	--hook-dir=/usr/share/mmdebstrap/hooks/merged-usr \
@@ -51,8 +52,8 @@ cat $ROOTFS/etc/packages.linglong.* | grep -v '#' | sudo tee $ROOTFS/etc/package
 
 while IFS="" read -r p || [ -n "$p" ]
 do
-  if grep -q "^$p:" $ROOTFS/etc/packages.linglong; then
-    _item=$(grep "^$p:" $ROOTFS/etc/packages.linglong)
+  if grep -q "^$p:" ./profiles/linglong-map.txt; then
+    _item=$(grep "^$p:" ./profiles/linglong-map.txt)
     _orig=$(echo $_item | cut -f1 -d ':')
     _conv=$(echo $_item | cut -f2 -d ':')
     sudo systemd-nspawn -D $ROOTFS bash -c "apt-get install -y $_conv"
@@ -64,3 +65,9 @@ done < $ROOTFS/etc/packages.linglong
 fi
 
 sudo systemd-nspawn -D $ROOTFS bash -c "apt clean"
+
+pushd $ROOTFS
+  sudo tar czf $BASE_CACHE .
+popd
+
+fi

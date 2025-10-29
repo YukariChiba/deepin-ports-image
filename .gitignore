@@ -7,3 +7,5 @@ results/
 results-img/
 tmp/
 utils/hooks/phytiumpi-bt/*
+cache/
+devices/test

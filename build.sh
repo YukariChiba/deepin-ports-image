@@ -30,7 +30,8 @@ IMGPFX="deepin-$TARGET_DEVICE-$TARGET_ARCH-$REPOPROFILE-$PKGPROFILE"
 if [ "$FSFMT" != "tarball" ]; then
   . ./utils/mount.sh
 fi
-. ./utils/install.sh
+. ./utils/install_base.sh
+. ./utils/install_device.sh
 . ./utils/hooks.sh
 
 ### Collect results

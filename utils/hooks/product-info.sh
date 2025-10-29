@@ -1,5 +1,6 @@
 #!/bin/bash
 
+if [ -f $ROOTFS/etc/os-version ]; then
 cat <<EOF | sudo tee $ROOTFS/etc/product-info > /dev/null
 $(cat $ROOTFS/etc/os-version  | grep "SystemName=")
 $(cat $ROOTFS/etc/os-version  | grep "EditionName=")
@@ -10,4 +11,4 @@ BuildTime=$(TZ="Asia/Shanghai" date +%Y%m%d%H%M%S)
 Arch=$TARGET_ARCH
 OEM=
 EOF
-
+fi
