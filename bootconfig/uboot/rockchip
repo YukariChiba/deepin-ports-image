@@ -1,4 +1,3 @@
 U_BOOT_PARAMETERS="rw earlycon console=tty1 console=ttyS2,1500000n8 coherent_pool=2M irqchip.gicv3_pseudo_nmi=0"
 U_BOOT_ROOT="root=LABEL=root"
-U_BOOT_FDT_DIR="/dtbs/linux-image-"
 U_BOOT_SYNC_DTBS="true"
