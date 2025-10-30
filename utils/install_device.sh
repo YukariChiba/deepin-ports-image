@@ -5,9 +5,9 @@
 INCREPOS=("${INCREPOS[@]}" "$INCREPOS_DEV")
 
 if [ -z $INTERNAL_REPO ]; then
-  echo "$INCREPO_DEV" | sudo tee -a $ROOTFS/etc/apt/sources.list > /dev/null
+  echo "$INCREPOS_DEV" | sudo tee -a $ROOTFS/etc/apt/sources.list > /dev/null
 else
-  echo "$INCREPO_INTERNAL_DEV" | sudo tee -a $ROOTFS/etc/apt/sources.list > /dev/null
+  echo "$INCREPOS_INTERNAL_DEV" | sudo tee -a $ROOTFS/etc/apt/sources.list > /dev/null
 fi
 
 if [ ! -z $EXTRAPKGS ]; then

@@ -1,4 +1,5 @@
 TARGET_DEVICE=rockchip
+DEVICEREPO=ports-board-rockchip
 TARGET_ARCH=arm64
 PKGPROFILE=desktop-installer
 EXTRAPKGS=linux-image-6.1.115-rockchip-armbian-61y,linux-headers-6.1.115-rockchip-armbian-61y,deepin-ports-profile-rockchip
