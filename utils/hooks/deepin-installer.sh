@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
-  echo_bold "--- deepin-installer detected, update config"
+  echo "--- deepin-installer detected, update config"
   sudo install -D ./utils/hooks/deepin-installer/deepin-installer.conf $ROOTFS/etc/deepin-installer/deepin-installer.conf
 
   for increpo_var in apt_source_deb DI_APT_SOURCE_DEB; do
@@ -24,7 +24,7 @@ if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
     sudo sed -i "/setup_kwin_env().*{/a export KWIN_COMPOSE=O2ES" $ROOTFS/usr/share/deepin-installer/tools/functions/xrandr.sh
   fi
 else
-  echo_bold "--- no deepin-installer found, write apt/sources.list"
+  echo "--- no deepin-installer found, write apt/sources.list"
   echo "" | sudo tee $ROOTFS/etc/apt/sources.list > /dev/null
   for INCREPO in "${INCREPOS[@]}"
   do

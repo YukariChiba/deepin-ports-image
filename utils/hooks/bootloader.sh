@@ -5,7 +5,7 @@ if [ -d /etc/initramfs-tools/conf.d/ ] && [ ! -z "$RESUME" ]; then
 fi
 
 if [ -d "./injectbin/kernelbin/$TARGET_DEVICE" ]; then
-  echo_bold "--- Found binary kernel/module/bootloader files"
+  echo "--- Found binary kernel/module/bootloader files"
   if [ -d "./injectbin/kernelbin/$TARGET_DEVICE/modules" ]; then
     echo "--- Found binary kernel modules"
     sudo mkdir -p $ROOTFS/lib/modules
@@ -19,7 +19,7 @@ if [ -d "./injectbin/kernelbin/$TARGET_DEVICE" ]; then
 fi
 
 if [ -d "./injectbin/firmware/$TARGET_DEVICE" ]; then
-  echo_bold "--- extra firmware detected"
+  echo "--- extra firmware detected"
   sudo mkdir -p $ROOTFS/lib/firmware
   sudo cp -r ./injectbin/firmware/$TARGET_DEVICE/* $ROOTFS/lib/firmware/
 fi
@@ -37,7 +37,7 @@ if [ -f $ROOTFS/sbin/update-initramfs ]; then
 fi
 
 if [ "$BOOTLOADER" == "extlinux" ]; then
-  echo_bold "--- Use extlinux bootloader"
+  echo "--- Use extlinux bootloader"
   DTBP=`ls $ROOTFS/usr/lib/ | grep linux-image- | head -n 1`
   if [ "$DTBP" != "" ] && [ "$BOOTSIZE" -ne "0" ]; then
     echo "--- Detected dtb with kernel in /usr/lib"
@@ -56,7 +56,7 @@ if [ "$BOOTLOADER" == "extlinux" ]; then
 fi
 
 if [ "$BOOTLOADER" == "grub" ]; then
-  echo_bold "--- Use grub bootloader"
+  echo "--- Use grub bootloader"
   if [ -f $ROOTFS/sbin/grub-install ]; then
      _NSPAWN_ARGS=" --bind=$(losetup -j $(realpath $DISKIMG) -O NAME -n)"
     if [ "$BOOTSIZE" -ne "0" ]; then

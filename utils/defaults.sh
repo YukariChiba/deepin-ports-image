@@ -19,12 +19,10 @@ RESUME=none
 REPOPROFILE=25
 COMPONENTS=crimson
 
-function echo_bold()
-{
-  echo "$(tput bold)$@ $(tput sgr0)"
-}
-
-export -f echo_bold
+if [ $(curl -LI "http://10.20.64.70/deepin-community/" -o /dev/null -w '%{http_code}\n' -s) == "200" ]; then
+  echo "deepin internal env detected, set INTERNAL_REPO=1"
+  INTERNAL_REPO=1
+fi
 
 function mkfs_helper()
 {
