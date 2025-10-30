@@ -48,16 +48,20 @@ sudo systemd-nspawn -D $ROOTFS bash -c "export DEBIAN_FRONTEND=noninteractive &&
 
 if [ -f $ROOTFS/usr/bin/ll-cli ]; then
 
-  if [ ! -z $INTERNAL_REPO ]; then
-    sudo systemd-nspawn -D $ROOTFS bash -c "ll-cli --no-dbus repo update stable https://pools.uniontech.com/linglong/"
-  fi
+cat $ROOTFS/etc/packages.linglong.* | grep -v '#' | sudo tee $ROOTFS/etc/packages.linglong
 
-  cat $ROOTFS/etc/packages.linglong.* | grep -v '#' | sudo tee $ROOTFS/etc/packages.linglong
-  sudo systemd-nspawn -D $ROOTFS bash -c "xargs -n1 --arg-file=/etc/packages.linglong ll-cli --no-dbus install"
-
-  if [ ! -z $INTERNAL_REPO ]; then
-    sudo systemd-nspawn -D $ROOTFS bash -c "ll-cli --no-dbus repo update stable https://mirror-repo-linglong.deepin.com"
+while IFS="" read -r p || [ -n "$p" ]
+do
+  if grep -q "^$p:" ./profiles/linglong-map.txt; then
+    _item=$(grep "^$p:" ./profiles/linglong-map.txt)
+    _orig=$(echo $_item | cut -f1 -d ':')
+    _conv=$(echo $_item | cut -f2 -d ':')
+    sudo systemd-nspawn -D $ROOTFS bash -c "apt-get install -y $_conv"
+  else
+    echo "warning: linglong package $p not installed"
   fi
+done < $ROOTFS/etc/packages.linglong
+
 fi
 
 sudo systemd-nspawn -D $ROOTFS bash -c "apt clean"
