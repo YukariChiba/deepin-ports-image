@@ -29,7 +29,7 @@ BASE_CACHE="$(pwd)/cache/base-$REPOPROFILE-$PKGPROFILE-$TARGET_ARCH.tar.gz"
 
 if [ -f $BASE_CACHE ]; then
 
-sudo tar xzf "./cache/base-$REPOPROFILE-$PKGPROFILE.tar.gz" -C $ROOTFS
+sudo tar xzf $BASE_CACHE -C $ROOTFS
 
 else
 
