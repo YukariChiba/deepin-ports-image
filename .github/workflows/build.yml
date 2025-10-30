@@ -1,0 +1,64 @@
+name: build image
+
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        required: true
+  workflow_call:
+    inputs:
+      profile:
+        required: true
+        type: string
+
+run-name: build image for ${{ inputs.profile }}
+
+jobs:
+  select-buildhost:
+    runs-on: ubuntu-24.04
+    outputs:
+      runson: ${{ steps.output.outputs.runson }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: output
+        run: source devices/${{ inputs.profile }} && [ "$TARGET_ARCH" == "arm64" ] && echo "runson=ubuntu-24.04-arm" >> "$GITHUB_OUTPUT" || true
+
+  build-image:
+    needs: select-buildhost
+    runs-on: ${{ needs.select-buildhost.outputs.runson || 'ubuntu-latest' }}
+    steps:
+      - name: "Update APT sources"
+        run: |
+          sudo apt update
+
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: true
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: YukariChiba/deepin-ports-image-injectbin
+          path: injectbin
+      - run: |
+          sudo apt-get install -y mmdebstrap systemd-container
+      - uses: docker/setup-qemu-action@v1
+      - run: |
+          COMPRESS=1 ./build.sh ${{ inputs.profile }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: image-${{ inputs.profile }}
+          path: "results-img/*.tar.xz"
+          retention-days: 3
+          if-no-files-found: error
