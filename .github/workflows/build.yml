@@ -18,10 +18,17 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       runson: ${{ steps.output.outputs.runson }}
+      cachekey: ${{ steps.output.outputs.cachekey }}
+      restorekey: ${{ steps.output.outputs.restorekey }}
     steps:
       - uses: actions/checkout@v4
       - id: output
-        run: source devices/${{ inputs.profile }} && [ "$TARGET_ARCH" == "arm64" ] && echo "runson=ubuntu-24.04-arm" >> "$GITHUB_OUTPUT" || true
+        run: |
+          source utils/defaults.sh
+          source devices/${{ inputs.profile }}
+          echo "cachekey=$REPOPROFILE-$PKGPROFILE-$TARGET_ARCH-$(date +'%Y%m%d')" >> "$GITHUB_OUTPUT"
+          echo "restorekey=$REPOPROFILE-$PKGPROFILE-$TARGET_ARCH-$(date +'%Y%m')" >> "$GITHUB_OUTPUT"
+          [ "$TARGET_ARCH" == "arm64" ] && echo "runson=ubuntu-24.04-arm" >> "$GITHUB_OUTPUT" || true
 
   build-image:
     needs: select-buildhost
@@ -54,6 +61,13 @@ jobs:
       - run: |
           sudo apt-get install -y mmdebstrap systemd-container
       - uses: docker/setup-qemu-action@v1
+      - run: mkdir -p cache
+      - uses: actions/cache@v4
+        with:
+          path: cache/
+          key: base-${{ needs.select-buildhost.outputs.cachekey }}
+          restore-keys: |
+            ${{ needs.select-buildhost.outputs.restorekey }}
       - run: |
           COMPRESS=1 ./build.sh ${{ inputs.profile }}
       - uses: actions/upload-artifact@v4
