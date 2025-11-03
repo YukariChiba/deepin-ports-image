@@ -2,7 +2,7 @@ org.dde.calendar:dde-calendar
 org.deepin.calculator:deepin-calculator
 org.deepin.draw:deepin-draw
 org.deepin.editor:deepin-editor
-org.deepin.movie:deepin-movie-reborn
+org.deepin.movie:deepin-movie
 org.deepin.reader:deepin-reader
 org.deepin.mail:deepin-mail
 org.deepin.camera:deepin-camera
