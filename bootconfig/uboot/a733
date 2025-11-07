@@ -1,2 +1,0 @@
-U_BOOT_PARAMETERS="console=ttyAS0,115200n8 rootwait clk_ignore_unused quiet splash loglevel=4 rw earlycon consoleblank=0 console=tty1"
-U_BOOT_ROOT="root=LABEL=root"

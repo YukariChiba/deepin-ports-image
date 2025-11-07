@@ -1,5 +1,6 @@
 TARGET_DEVICE=a733
 TARGET_ARCH=arm64
+DEVICEREPO=ports-board-allwinner
 PKGPROFILE=desktop-installer
 BOOTLOADER=extlinux
-EXTRAPKGS=linux-image-5.15.147-a733-radxa-515y,linux-headers-5.15.147-a733-radxa-515y,initramfs-tools,u-boot-menu
+EXTRAPKGS=linux-image-5.15.147-a733-radxa-515y,linux-headers-5.15.147-a733-radxa-515y,deepin-ports-profile-a733
