@@ -5,6 +5,7 @@ on:
     inputs:
       profile:
         required: true
+        description: "device to build"
   workflow_call:
     inputs:
       profile:
