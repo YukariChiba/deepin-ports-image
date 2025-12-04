@@ -1,0 +1,5 @@
+TARGET_DEVICE=sg2044
+TARGET_ARCH=riscv64
+PKGPROFILE=desktop-installer
+EXTRAPKGS=linux-image-6.17-sg2044-upstream-617y,deepin-ports-profile-sg2044
+BOOTLOADER=extlinux
