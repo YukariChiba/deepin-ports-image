@@ -1,9 +1,8 @@
-# TODO: needs to run grub-mkconfig manually
 TARGET_DEVICE=q6a
 DEVICEREPO=ports-board-radxa-q6a
 TARGET_ARCH=arm64
 PKGPROFILE=desktop-installer
 EFISIZE=48
-EXTRAPKGS=linux-image-6.15.7-q6a-radxa-615y,linux-headers-6.15.7-q6a-radxa-615y,deepin-ports-profile-q6a
+EXTRAPKGS=linux-headers-6.18.2-q6a-radxa-618y,linux-image-6.18.2-q6a-radxa-618y,deepin-ports-profile-q6a
 BOOTLOADER=grub
 IMGPROFILE=efi
