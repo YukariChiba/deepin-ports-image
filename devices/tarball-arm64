@@ -1,0 +1,4 @@
+FSFMT=tarball
+TARGET_DEVICE=tarball
+TARGET_ARCH=arm64
+PKGPROFILE=minimal
