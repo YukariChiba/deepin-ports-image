@@ -1,0 +1,5 @@
+deb http://10.20.64.70/deepin-community/stable/ crimson main community commercial
+deb http://10.20.64.70/deepin-community/testing/ unstable/crimson main community commercial
+deb http://10.20.64.70/deepin-community/hwe-25/ unstable main community commercial
+deb http://10.20.64.70/deepin-ports/repo/ ports ports-apps ports-kernel ports-imggpu ports-profiles
+deb [trusted=yes] https://ci.deepin.com/repo/obs/deepin:/CI:/ports:/rva23/testing/ ./
