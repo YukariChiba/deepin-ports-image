@@ -1,6 +1,7 @@
 TARGET_DEVICE=qcom
 TARGET_ARCH=arm64
 PKGPROFILE=desktop-installer
+GRUBKARGS="clk_ignore_unused earlycon=qcom_geni,0x884000 console=ttyMSM0,115200n8 keep_bootcon"
 EFISIZE=48
 EXTRAPKGS=linux-image-7.0.2-qcom-radxa-70y,linux-headers-7.0.2-qcom-radxa-70y,deepin-ports-profile-qcom
 BOOTLOADER=grub
