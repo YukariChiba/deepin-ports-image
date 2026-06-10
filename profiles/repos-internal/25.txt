@@ -2,3 +2,4 @@ deb http://10.20.64.70/deepin-community/stable/ crimson main community commercia
 deb http://10.20.64.70/deepin-community/testing/ unstable/crimson main community commercial
 deb http://10.20.64.70/deepin-community/hwe-25/ unstable main community commercial
 deb http://10.20.64.70/deepin-ports/repo/ ports ports-apps ports-kernel ports-imggpu ports-profiles
+deb [trusted=yes] https://pools.uniontech.com/appstore-self-developed-deepin25/ crimson appstore
