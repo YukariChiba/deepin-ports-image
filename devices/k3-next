@@ -1,0 +1,7 @@
+TARGET_DEVICE=k3
+DEVICEREPO=ports-board-spacemit-k3
+TARGET_ARCH=riscv64
+BOOTSIZE=256
+REPOPROFILE=next
+PKGPROFILE=desktop-installer
+EXTRAPKGS=linux-image-6.18.3-k3-spacemit-618y,deepin-ports-profile-k3
