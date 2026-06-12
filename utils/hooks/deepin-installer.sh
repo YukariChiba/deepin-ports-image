@@ -8,7 +8,11 @@ if [[ ${INCPKGS[@]} =~ deepin-installer ]]; then
     echo -n "${increpo_var}=\"" | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf
     for INCREPO in "${INCREPOS[@]}"
     do
-      echo -n "$INCREPO\\n\\n" | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf > /dev/null
+      if [[ $INCREPO =~ "appstore" ]] && [ -f $ROOTFS/etc/apt/sources.list.d/appstore.list ]; then
+        echo "SKIP $INCREPO for appstore"
+      else
+        echo -n "$INCREPO\\n\\n" | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf > /dev/null
+      fi
     done
     echo -n '"' | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf
     echo "\n" | sudo tee -a $ROOTFS/etc/deepin-installer/deepin-installer.conf
@@ -28,6 +32,10 @@ else
   echo "" | sudo tee $ROOTFS/etc/apt/sources.list > /dev/null
   for INCREPO in "${INCREPOS[@]}"
   do
-    echo "$INCREPO" | sudo tee -a $ROOTFS/etc/apt/sources.list > /dev/null
+    if [[ $INCREPO =~ "appstore" ]] && [ -f $ROOTFS/etc/apt/sources.list.d/appstore.list ]; then
+      echo "SKIP $INCREPO for appstore"
+    else
+      echo "$INCREPO" | sudo tee -a $ROOTFS/etc/apt/sources.list > /dev/null
+    fi
   done
 fi
